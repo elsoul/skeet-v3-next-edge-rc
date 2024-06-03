@@ -34,3 +34,25 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# wrangler files
+.wrangler
+.dev.vars
+
+# env
+.env
+
+# tmp
+tmp/
+
+# Wallets / Secrets
+
+*wallet.json
+*key.json
+*keyfile.json
+*keys.json
+.secret*
+.dev.vars
+
+# Selenium Profile
+.profile

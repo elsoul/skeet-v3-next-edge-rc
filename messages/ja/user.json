@@ -1,0 +1,11 @@
+{
+  "User": {
+    "toggleNavigationMenu": "ナビゲーションメニュー開閉ボタン",
+    "home": "ホーム",
+    "aiChats": "AI チャット",
+    "settings": "設定",
+    "upgrade": "アップグレード",
+    "upgradeCardTitle": "Pro へアップグレード",
+    "upgradeCardDescription": "Skeet のためにカスタマイズされたサーバーレスインフラですべての機能をアンロックします。"
+  }
+}
