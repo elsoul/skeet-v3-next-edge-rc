@@ -33,6 +33,9 @@ Demo: https://skeet-v3-next-edge-rc.pages.dev/
 - Next.js App Router
 - React Compiler (No more useMemo and useCallback)
 - Passwordless Sign-in (Magic Link)
+- Green Coding
+
+<img src="https://app.greenweb.org/api/v3/greencheckimage/skeet-v3-next-edge-rc.pages.dev?nocache=true" alt="This website runs on green hosting - verified by thegreenwebfoundation.org" width="200px" height="95px">
 
 ## Built with
 
