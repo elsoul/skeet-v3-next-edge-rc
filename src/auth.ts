@@ -20,8 +20,23 @@ const providers: Provider[] = [
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
-  session: { strategy: 'jwt' },
+  session: { strategy: 'jwt', maxAge: 14 * 24 * 60 * 60 },
   providers,
+  callbacks: {
+    jwt({ token, user, trigger }) {
+      if (user) {
+        token.id = user.id
+      }
+      if (trigger === 'signUp') {
+        // create user in your db
+      }
+      return token
+    },
+    session({ session, token }) {
+      session.user.id = token.id as string
+      return session
+    },
+  },
 })
 
 export const providerMap = providers.map((provider) => {
