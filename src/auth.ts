@@ -23,12 +23,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   session: { strategy: 'jwt', maxAge: 14 * 24 * 60 * 60 },
   providers,
   callbacks: {
-    jwt({ token, user, trigger }) {
+    jwt({ token, user }) {
       if (user) {
         token.id = user.id
-      }
-      if (trigger === 'signUp') {
-        // create user in your db
       }
       return token
     },
