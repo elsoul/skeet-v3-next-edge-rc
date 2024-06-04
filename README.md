@@ -60,7 +60,6 @@ Demo: https://skeet-v3-next-edge-rc.pages.dev/
 - [React Hook From](https://react-hook-form.com/)
 - [Zod](https://zod.dev/)
 - [Jotai](https://jotai.org/)
-- [SWR](https://swr.vercel.app/)
 
 ## Getting Started
 

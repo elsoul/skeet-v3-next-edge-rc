@@ -49,7 +49,6 @@
     "react": "19.0.0-rc-f994737d14-20240522",
     "react-dom": "19.0.0-rc-f994737d14-20240522",
     "react-hook-form": "7.51.5",
-    "swr": "2.2.5",
     "zod": "3.23.8"
   },
   "devDependencies": {
