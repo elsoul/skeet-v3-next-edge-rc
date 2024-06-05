@@ -1,7 +1,6 @@
 export const appInfo = {
-  title: 'Skeet v3',
-  description: "We're going to the Edge.",
   copyright: 'ELSOUL LABO B.V.',
+  twitterId: '@SkeetDev',
 }
 
 export const logoUrl =
@@ -10,4 +9,4 @@ export const logoUrl =
 export const locales = ['en', 'ja'] as const
 export const defaultLocale = 'en'
 
-export const messageJsons = ['common', 'auth', 'user', 'aiChats']
+export const messageJsons = ['common', 'metadata', 'auth', 'user', 'aiChats']

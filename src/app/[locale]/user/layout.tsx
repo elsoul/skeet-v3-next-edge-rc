@@ -8,6 +8,7 @@ import UserSiderNav from './SiderNav'
 
 type Props = {
   children: React.ReactNode
+  params: { locale: string }
 }
 
 export default async function UserLayout({ children }: Props) {

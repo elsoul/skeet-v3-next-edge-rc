@@ -1,6 +1,19 @@
 import { Button } from '@/components/ui/button'
 import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import Link from 'next/link'
+
+export async function generateMetadata({ params: { locale } }: Props) {
+  const t = await getTranslations({ locale, namespace: 'Metadata' })
+
+  return {
+    title: t('userHomeTitle'),
+  }
+}
+
+type Props = {
+  params: { locale: string }
+}
 
 export default function UserHome() {
   const t = useTranslations()

@@ -6,6 +6,7 @@ import { redirect } from '@/navigation'
 
 type Props = {
   children: React.ReactNode
+  params: { locale: string }
 }
 
 export default async function DefaultLayout({ children }: Props) {
