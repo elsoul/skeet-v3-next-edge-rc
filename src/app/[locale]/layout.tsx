@@ -13,13 +13,13 @@ export async function generateMetadata({ params: { locale } }: Props) {
 
   return {
     title: {
-      template: `%s | ${t('titleTemplate')}`,
+      template: `%s | ${t('appTitle')}`,
       default: t('defaultTitle'),
     },
     description: t('defaultDescription'),
     openGraph: {
       title: {
-        template: `%s | ${t('titleTemplate')}`,
+        template: `%s | ${t('appTitle')}`,
         default: t('defaultTitle'),
       },
       description: t('defaultDescription'),
