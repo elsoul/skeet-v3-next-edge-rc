@@ -1,7 +1,6 @@
 export const appInfo = {
   copyright: 'ELSOUL LABO B.V.',
   twitterId: '@SkeetDev',
-  domain: 'skeet-v3-next-edge-rc.pages.dev',
 }
 
 export const logoUrl =
