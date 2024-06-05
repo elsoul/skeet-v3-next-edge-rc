@@ -33,7 +33,6 @@ export async function generateMetadata({ params: { locale } }: Props) {
       index: false,
       follow: false,
       nocache: true,
-      userAgent: '*',
     },
   }
 }
