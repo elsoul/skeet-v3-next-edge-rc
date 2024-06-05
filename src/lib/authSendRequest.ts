@@ -16,7 +16,7 @@ export async function sendVerificationRequest(params: {
     body: JSON.stringify({
       from: provider.from,
       to,
-      subject: `Sign in to ${host} - ${appInfo.title}`,
+      subject: `Sign in to ${host}`,
       html: html({ url, host }),
       text: text({ url, host }),
     }),

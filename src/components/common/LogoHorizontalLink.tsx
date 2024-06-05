@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { logoHorizontal, logoHorizontalInvert } from '@/assets/img'
 import { blurDataURL, cn } from '@/lib/utils'
 import { appInfo } from '@/app/config'
+import { useTranslations } from 'next-intl'
 
 type Props = {
   className?: string
@@ -15,13 +16,15 @@ export default function LogoHorizontalLink({
   href = '/',
   ...rest
 }: Props) {
+  const t = useTranslations()
+
   return (
     <>
       <Link href={href} {...rest}>
-        <span className="sr-only">{appInfo.title}</span>
+        <span className="sr-only">{t('Metadata.appTitle')}</span>
         <Image
           src={logoHorizontal}
-          alt={appInfo.title}
+          alt={t('Metadata.appTitle')}
           className={cn('hover:opacity-80 dark:hidden', className)}
           unoptimized
           placeholder="blur"
@@ -29,7 +32,7 @@ export default function LogoHorizontalLink({
         />
         <Image
           src={logoHorizontalInvert}
-          alt={appInfo.title}
+          alt={t('Metadata.appTitle')}
           className={cn('hidden hover:opacity-80 dark:block', className)}
           unoptimized
           placeholder="blur"
