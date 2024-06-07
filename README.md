@@ -92,7 +92,7 @@ pnpm db:auth:apply --local
 pnpm db:auth:gen
 
 // Neon db migration
-pnpm db:neon:dev
+pnpm db:neon:migration:dev
 pnpm db:neon:gen
 
 pnpm dev
@@ -119,7 +119,7 @@ pnpm db:auth:gen
 ### Migration Neon example
 
 ```bash
-pnpm db:neon:dev
+pnpm db:neon:migration:dev // migration:prod is for production (used with .env.build)
 pnpm db:neon:gen
 ```
 

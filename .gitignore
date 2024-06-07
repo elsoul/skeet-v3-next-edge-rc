@@ -41,6 +41,7 @@ next-env.d.ts
 
 # env
 .env
+.env.build
 
 # tmp
 tmp/
