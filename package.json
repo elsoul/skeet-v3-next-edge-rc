@@ -29,7 +29,6 @@
     "db:auth:apply": "wrangler d1 migrations apply skeet-auth-database",
     "db:auth:gen": "prisma generate --schema=./prisma/auth/schema.prisma",
     "db:auth:reset": "prisma migrate reset --force --schema ./prisma/auth/schema.prisma",
-    "db:auth:studio": "prisma studio --schema ./prisma/auth/schema.prisma",
     "ui:add": "pnpm dlx shadcn-ui@latest add"
   },
   "dependencies": {
