@@ -29,8 +29,8 @@ pages_build_output_dir = ".vercel/output/static"
 [[d1_databases]]
 binding = "SKEET_AUTH_DB"
 database_name = "skeet-auth-database"
-database_id = "b27d329d-7116-4716-9e7d-dbacb9a92ec1"
-migrations_dir = 'prisma/migrations'
+database_id = "a54eae39-27e0-4de2-8d7e-445f362017a6"
+migrations_dir = 'prisma/auth/migrations'
 preview_database_id = "SKEET_AUTH_DB"
 
 # Bind a Durable Object. Durable objects are a scale-to-zero compute primitive based on the actor model.

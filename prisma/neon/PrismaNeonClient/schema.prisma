@@ -1,0 +1,28 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+  output          = "PrismaNeonClient"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("NEON_DB_URL")
+}
+
+enum Role {
+  MASTER
+  ADMIN
+  USER
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  uid      String @unique
+  username String @default("Skeeter Rabbit")
+  role     Role   @default(USER)
+  email    String @unique
+  iconUrl  String @default("")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

@@ -13,7 +13,7 @@ type Props = {
 
 export default async function UserLayout({ children }: Props) {
   const session = await auth()
-  if (!session) {
+  if (!session || !session.user?.id) {
     redirect('/')
   }
   console.log(session)

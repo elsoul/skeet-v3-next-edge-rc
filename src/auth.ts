@@ -1,15 +1,17 @@
 import NextAuth from 'next-auth'
 import { PrismaAdapter } from '@auth/prisma-adapter'
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient as PrismaAuthClient } from '@/prisma/auth/PrismaAuthClient'
 import { PrismaD1 } from '@prisma/adapter-d1'
 import Resend from 'next-auth/providers/resend'
 import type { Provider } from 'next-auth/providers'
 import { sendVerificationRequest } from './lib/authSendRequest'
+import prismaNeonClient from './lib/prismaNeonClient'
+import { getGravatarUrl } from './lib/utils'
 
 export const runtime = 'experimental-edge'
 
 const adapter = new PrismaD1(process.env.SKEET_AUTH_DB)
-const prisma = new PrismaClient({ adapter })
+const prisma = new PrismaAuthClient({ adapter })
 
 const providers: Provider[] = [
   Resend({
@@ -19,13 +21,28 @@ const providers: Provider[] = [
 ]
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  adapter: PrismaAdapter(prisma),
+  // somehow this doesn't recognize the prisma client which was made for the different output folder
+  adapter: PrismaAdapter(prisma as any),
   session: { strategy: 'jwt', maxAge: 14 * 24 * 60 * 60 },
   providers,
   callbacks: {
-    jwt({ token, user }) {
-      if (user) {
-        token.id = user.id
+    async jwt({ token, user, trigger }) {
+      if (!user || !user.email || !user.id) {
+        return token
+      }
+      token.id = user.id
+      if (trigger === 'signUp') {
+        console.log(`Signed up user: ${user.email}`)
+        const prisma = prismaNeonClient(process.env.NEON_DB_URL)
+        await prisma.user.create({
+          data: {
+            uid: user.id,
+            email: user.email,
+            username: user.email.split('@')[0],
+            role: 'USER',
+            iconUrl: getGravatarUrl(user.email),
+          },
+        })
       }
       return token
     },

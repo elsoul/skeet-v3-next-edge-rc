@@ -63,31 +63,6 @@ Demo: https://skeet-v3-next-edge-rc.pages.dev/
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-pnpm i
-pnpm dev
-```
-
-Open [http://localhost:4200](http://localhost:4200) with your browser to see the result.
-
-### Migration D1 example
-
-```bash
-pnpm migration:create create_user_table
-pnpm migration:init --output prisma/migrations/0001_create_user_table.sql
-pnpm migration:apply --local // --remote to production
-pnpm migration:generate
-
-
-// evolve schema
-pnpm migration:create update_user_table
-pnpm migration:evolve --output prisma/migrations/0002_update_user_table.sql
-pnpm migration:apply --local
-pnpm migration:generate
-```
-
 ### secrets
 
 Create AUTH_SECRET with
@@ -96,9 +71,57 @@ Create AUTH_SECRET with
 pnpm dlx auth secret
 ```
 
+You need to create free accounts on Resend (to send email) and Neon (for serverless postgresql).
+
+- [Resend](https://resend.com/)
+- [Neon](https://neon.tech/)
+
 create .env/.env.local/.dev.vars from .env.sample
 
 Also set the secret values on Cloudflare Pages.
+
+### Run the development server
+
+```bash
+pnpm i
+
+// D1 Auth db migration
+pnpm db:auth:create create_user_table
+pnpm db:auth:init --output prisma/auth/migrations/0001_create_user_table.sql
+pnpm db:auth:apply --local
+pnpm db:auth:gen
+
+// Neon db migration
+pnpm db:neon:dev
+pnpm db:neon:gen
+
+pnpm dev
+```
+
+Open [http://localhost:4200](http://localhost:4200) with your browser to see the result.
+
+### Migration D1 Auth example
+
+```bash
+pnpm db:auth:create create_user_table
+pnpm db:auth:init --output prisma/auth/migrations/0001_create_user_table.sql
+pnpm db:auth:apply --local // --remote to production
+pnpm db:auth:gen
+
+
+// evolve schema
+pnpm db:auth:create update_user_table
+pnpm db:auth:evolve --output prisma/auth/migrations/0002_update_user_table.sql
+pnpm db:auth:apply --local
+pnpm db:auth:gen
+```
+
+### Migration Neon example
+
+```bash
+pnpm db:neon:dev
+pnpm db:neon:gen
+```
 
 ### Add Components
 

@@ -10,6 +10,7 @@ declare global {
     interface ProcessEnv {
       [key: string]: string | undefined
       SKEET_AUTH_DB: D1Database
+      NEON_DB_URL: string
     }
   }
 }
