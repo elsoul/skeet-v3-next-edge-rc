@@ -2,7 +2,6 @@ import { Link } from '@/navigation'
 import Image from 'next/image'
 import { logoHorizontal, logoHorizontalInvert } from '@/assets/img'
 import { blurDataURL, cn } from '@/lib/utils'
-import { appInfo } from '@/app/config'
 import { useTranslations } from 'next-intl'
 
 type Props = {

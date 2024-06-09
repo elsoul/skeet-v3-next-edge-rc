@@ -4,7 +4,7 @@ import { Link, usePathname } from '@/navigation'
 import LogoHorizontalLink from '@/components/common/LogoHorizontalLink'
 import UpgradeCard from '@/components/common/UpgradeCard'
 import { useTranslations } from 'next-intl'
-import { USER_PATHS, userNav } from './userNav'
+import { USER_PATHS, userNav } from './userNavs'
 import { cn } from '@/lib/utils'
 
 export default function UserSiderNav() {
@@ -23,7 +23,7 @@ export default function UserSiderNav() {
               {userNav.map((navItem) => (
                 <Link
                   href={navItem.path}
-                  key={`ModalNav ${navItem.label}`}
+                  key={`SiderNav ${navItem.label}`}
                   className={cn(
                     pathname === navItem.path
                       ? 'bg-muted text-primary transition-all hover:text-primary dark:bg-muted/40'

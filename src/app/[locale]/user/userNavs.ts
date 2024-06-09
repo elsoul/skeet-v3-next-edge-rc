@@ -9,7 +9,7 @@ export enum USER_PATHS {
 export const userNav = [
   {
     path: USER_PATHS.chat,
-    label: 'AIChats.title',
+    label: 'Chat.title',
     icon: ChatBubbleIcon,
   },
   {

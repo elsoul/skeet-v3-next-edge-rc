@@ -8,7 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import LogoHorizontalLink from '@/components/common/LogoHorizontalLink'
 import { useTranslations } from 'next-intl'
 import UpgradeCard from '@/components/common/UpgradeCard'
-import { userNav, USER_PATHS } from './userNav'
+import { userNav, USER_PATHS } from './userNavs'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
 

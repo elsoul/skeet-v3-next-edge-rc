@@ -17,6 +17,8 @@ import { useRouter } from '@/navigation'
 import { useSession } from 'next-auth/react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { getGravatarUrl } from '@/lib/utils'
+import { DEFAULT_PATHS } from '../(default)/defaultNavs'
+import { USER_PATHS } from './userNavs'
 
 export default function UserMenu() {
   const t = useTranslations()
@@ -28,7 +30,7 @@ export default function UserMenu() {
     startTransition(async () => {
       try {
         await signOutAction()
-        router.push('/')
+        router.push(DEFAULT_PATHS.home)
         toast({
           title: t('Auth.signOutTitle'),
           description: t('Auth.signOutDescription'),
@@ -54,7 +56,7 @@ export default function UserMenu() {
           <DropdownMenuLabel>{session.data?.user?.email}</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem
-            onClick={() => router.push('/user/settings')}
+            onClick={() => router.push(USER_PATHS.settings)}
             disabled={isPending}
           >
             {t('Settings.title')}

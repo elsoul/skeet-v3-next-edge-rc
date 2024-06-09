@@ -13,7 +13,8 @@ export const messageJsons = [
   'common',
   'metadata',
   'auth',
+  'home',
   'user',
-  'aiChats',
+  'chat',
   'settings',
 ]

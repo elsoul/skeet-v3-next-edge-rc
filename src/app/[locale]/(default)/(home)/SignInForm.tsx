@@ -16,6 +16,7 @@ import { useToast } from '@/components/ui/use-toast'
 import { useRouter } from '@/navigation'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
+import { DEFAULT_PATHS } from '../defaultNavs'
 
 export default function SignInForm() {
   const t = useTranslations()
@@ -27,7 +28,7 @@ export default function SignInForm() {
     startTransition(async () => {
       try {
         await signInAction(formData)
-        router.push('verify-email')
+        router.push(DEFAULT_PATHS.verifyEmail)
       } catch (e) {
         if (e instanceof Error) {
           console.error(e)

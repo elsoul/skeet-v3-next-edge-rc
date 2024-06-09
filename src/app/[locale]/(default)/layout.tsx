@@ -3,6 +3,7 @@ import { auth } from '@/auth'
 import { LanguageToggle } from '@/components/config/LanguageToggle'
 import { ModeToggle } from '@/components/config/ModeToggle'
 import { redirect } from '@/navigation'
+import { USER_PATHS } from '../user/userNavs'
 
 type Props = {
   children: React.ReactNode
@@ -12,7 +13,7 @@ type Props = {
 export default async function DefaultLayout({ children }: Props) {
   const session = await auth()
   if (session) {
-    redirect('/user')
+    redirect(USER_PATHS.home)
   }
 
   return (
