@@ -4,6 +4,7 @@
     "defaultTitle": "ホーム",
     "defaultDescription": "We're going to the Edge.",
     "homeTitle": "ホーム",
-    "userHomeTitle": "ユーザーホーム"
+    "userChatTitle": "AI チャット",
+    "userSettingsTitle": "設定"
   }
 }

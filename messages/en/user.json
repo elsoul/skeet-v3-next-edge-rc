@@ -1,9 +1,6 @@
 {
   "User": {
     "toggleNavigationMenu": "Toggle navigation menu",
-    "home": "Home",
-    "aiChats": "AI Chats",
-    "settings": "Settings",
     "upgrade": "Upgrade",
     "upgradeCardTitle": "Upgrade to Pro",
     "upgradeCardDescription": "Unlock all features with a serverless infrastructure customized for Skeet."

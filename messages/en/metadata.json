@@ -4,6 +4,7 @@
     "defaultTitle": "Home",
     "defaultDescription": "We're going to the Edge.",
     "homeTitle": "Home",
-    "userHomeTitle": "User Home"
+    "userChatTitle": "AI Chats",
+    "userSettingsTitle": "Settings"
   }
 }

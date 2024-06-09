@@ -54,10 +54,12 @@ export default function UserMenu() {
           <DropdownMenuLabel>{session.data?.user?.email}</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem
-            itemType="submit"
-            onClick={submitAction}
+            onClick={() => router.push('/user/settings')}
             disabled={isPending}
           >
+            {t('Settings.title')}
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={submitAction} disabled={isPending}>
             {t('Auth.signOut')}
           </DropdownMenuItem>
         </DropdownMenuContent>

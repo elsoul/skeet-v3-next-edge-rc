@@ -33,6 +33,7 @@
     "ui:add": "pnpm dlx shadcn-ui@latest add"
   },
   "dependencies": {
+    "@ai-sdk/openai": "0.0.24",
     "@auth/prisma-adapter": "2.1.0",
     "@hookform/resolvers": "3.4.2",
     "@neondatabase/serverless": "0.9.3",
@@ -46,6 +47,7 @@
     "@radix-ui/react-label": "2.0.2",
     "@radix-ui/react-slot": "1.0.2",
     "@radix-ui/react-toast": "1.1.5",
+    "ai": "3.1.30",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",
     "crypto-js": "4.2.0",

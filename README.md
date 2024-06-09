@@ -29,6 +29,7 @@ Demo: https://skeet-v3-next-edge-rc.pages.dev/
 
 - Edge Runtime
 - i18n Native
+- AI-powered Products Ready
 - Cloudflare D1 + Prisma
 - Next.js App Router
 - React Compiler (No more useMemo and useCallback)
@@ -60,6 +61,7 @@ Demo: https://skeet-v3-next-edge-rc.pages.dev/
 - [React Hook From](https://react-hook-form.com/)
 - [Zod](https://zod.dev/)
 - [Jotai](https://jotai.org/)
+- [Vercel AI SDK](https://sdk.vercel.ai/docs/introduction)
 
 ## Getting Started
 
@@ -75,6 +77,10 @@ You need to create free accounts on Resend (to send email) and Neon (for serverl
 
 - [Resend](https://resend.com/)
 - [Neon](https://neon.tech/)
+
+If you want to use AI, you need to get the OpenAI API key.
+
+- [OpenAI](https://openai.com/index/openai-api/)
 
 create .env/.env.local/.dev.vars from .env.sample
 

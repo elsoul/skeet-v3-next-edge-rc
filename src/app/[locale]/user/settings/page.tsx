@@ -7,7 +7,7 @@ export async function generateMetadata({ params: { locale } }: Props) {
   const t = await getTranslations({ locale, namespace: 'Metadata' })
 
   return {
-    title: t('userHomeTitle'),
+    title: t('userSettingsTitle'),
   }
 }
 
@@ -15,13 +15,13 @@ type Props = {
   params: { locale: string }
 }
 
-export default function UserHome() {
+export default function UserSettings() {
   const t = useTranslations()
   return (
     <>
       <div className="flex items-center">
         <h1 className="text-lg font-semibold md:text-2xl">
-          {t('AIChats.title')}
+          {t('Settings.title')}
         </h1>
       </div>
       <div

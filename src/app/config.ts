@@ -9,4 +9,11 @@ export const logoUrl =
 export const locales = ['en', 'ja'] as const
 export const defaultLocale = 'en'
 
-export const messageJsons = ['common', 'metadata', 'auth', 'user', 'aiChats']
+export const messageJsons = [
+  'common',
+  'metadata',
+  'auth',
+  'user',
+  'aiChats',
+  'settings',
+]
