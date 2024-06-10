@@ -126,6 +126,7 @@ exports.Prisma.UserScalarFieldEnum = {
   role: 'role',
   email: 'email',
   iconUrl: 'iconUrl',
+  discordId: 'discordId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

@@ -8,7 +8,14 @@
       "title": "Discord Integration",
       "description": "Set up your account integration with Discord.",
       "notYet": "Not yet integrated. For better service, please integrate using the button below.",
-      "linking": "Account currently linked:"
+      "linking": "Account currently linked:",
+      "linkButton": "Link Discord",
+      "unlinkButton": "Unlink Discord",
+      "confirmingTitle": "Linking Your Account",
+      "confirmingDescription": "Setting up your account linking with Discord. Please wait a moment.",
+      "confirmedTitle": "Account Linked",
+      "confirmedDescription": "Account linking with Discord has been completed.",
+      "backToSettings": "Back to Settings"
     }
   }
 }

@@ -2,7 +2,7 @@ import LogoHorizontalLink from '@/components/common/LogoHorizontalLink'
 import { EnvelopeClosedIcon } from '@radix-ui/react-icons'
 import { useTranslations } from 'next-intl'
 
-export default function Home() {
+export default function VerifyEmail() {
   const t = useTranslations()
   return (
     <>

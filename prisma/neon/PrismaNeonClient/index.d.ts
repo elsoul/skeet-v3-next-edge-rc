@@ -927,6 +927,7 @@ export namespace Prisma {
     role: $Enums.Role | null
     email: string | null
     iconUrl: string | null
+    discordId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -938,6 +939,7 @@ export namespace Prisma {
     role: $Enums.Role | null
     email: string | null
     iconUrl: string | null
+    discordId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -949,6 +951,7 @@ export namespace Prisma {
     role: number
     email: number
     iconUrl: number
+    discordId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -970,6 +973,7 @@ export namespace Prisma {
     role?: true
     email?: true
     iconUrl?: true
+    discordId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -981,6 +985,7 @@ export namespace Prisma {
     role?: true
     email?: true
     iconUrl?: true
+    discordId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -992,6 +997,7 @@ export namespace Prisma {
     role?: true
     email?: true
     iconUrl?: true
+    discordId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1090,6 +1096,7 @@ export namespace Prisma {
     role: $Enums.Role
     email: string
     iconUrl: string
+    discordId: string
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1120,6 +1127,7 @@ export namespace Prisma {
     role?: boolean
     email?: boolean
     iconUrl?: boolean
+    discordId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1131,6 +1139,7 @@ export namespace Prisma {
     role?: boolean
     email?: boolean
     iconUrl?: boolean
+    discordId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
@@ -1147,6 +1156,7 @@ export namespace Prisma {
       role: $Enums.Role
       email: string
       iconUrl: string
+      discordId: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -1575,6 +1585,7 @@ export namespace Prisma {
     readonly role: FieldRef<"User", 'Role'>
     readonly email: FieldRef<"User", 'String'>
     readonly iconUrl: FieldRef<"User", 'String'>
+    readonly discordId: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -1886,6 +1897,7 @@ export namespace Prisma {
     role: 'role',
     email: 'email',
     iconUrl: 'iconUrl',
+    discordId: 'discordId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -1997,6 +2009,7 @@ export namespace Prisma {
     role?: EnumRoleFilter<"User"> | $Enums.Role
     email?: StringFilter<"User"> | string
     iconUrl?: StringFilter<"User"> | string
+    discordId?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }
@@ -2008,6 +2021,7 @@ export namespace Prisma {
     role?: SortOrder
     email?: SortOrder
     iconUrl?: SortOrder
+    discordId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2022,6 +2036,7 @@ export namespace Prisma {
     username?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
     iconUrl?: StringFilter<"User"> | string
+    discordId?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }, "id" | "uid" | "email">
@@ -2033,6 +2048,7 @@ export namespace Prisma {
     role?: SortOrder
     email?: SortOrder
     iconUrl?: SortOrder
+    discordId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -2052,6 +2068,7 @@ export namespace Prisma {
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
     email?: StringWithAggregatesFilter<"User"> | string
     iconUrl?: StringWithAggregatesFilter<"User"> | string
+    discordId?: StringWithAggregatesFilter<"User"> | string
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -2062,6 +2079,7 @@ export namespace Prisma {
     role?: $Enums.Role
     email: string
     iconUrl?: string
+    discordId?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2073,6 +2091,7 @@ export namespace Prisma {
     role?: $Enums.Role
     email: string
     iconUrl?: string
+    discordId?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2083,6 +2102,7 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     email?: StringFieldUpdateOperationsInput | string
     iconUrl?: StringFieldUpdateOperationsInput | string
+    discordId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2094,6 +2114,7 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     email?: StringFieldUpdateOperationsInput | string
     iconUrl?: StringFieldUpdateOperationsInput | string
+    discordId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2105,6 +2126,7 @@ export namespace Prisma {
     role?: $Enums.Role
     email: string
     iconUrl?: string
+    discordId?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2115,6 +2137,7 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     email?: StringFieldUpdateOperationsInput | string
     iconUrl?: StringFieldUpdateOperationsInput | string
+    discordId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2126,6 +2149,7 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     email?: StringFieldUpdateOperationsInput | string
     iconUrl?: StringFieldUpdateOperationsInput | string
+    discordId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2181,6 +2205,7 @@ export namespace Prisma {
     role?: SortOrder
     email?: SortOrder
     iconUrl?: SortOrder
+    discordId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2196,6 +2221,7 @@ export namespace Prisma {
     role?: SortOrder
     email?: SortOrder
     iconUrl?: SortOrder
+    discordId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2207,6 +2233,7 @@ export namespace Prisma {
     role?: SortOrder
     email?: SortOrder
     iconUrl?: SortOrder
+    discordId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }

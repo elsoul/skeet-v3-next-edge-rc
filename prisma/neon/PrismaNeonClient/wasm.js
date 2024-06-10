@@ -94,6 +94,7 @@ exports.Prisma.UserScalarFieldEnum = {
   role: 'role',
   email: 'email',
   iconUrl: 'iconUrl',
+  discordId: 'discordId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -164,13 +165,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider        = \"prisma-client-js\"\n  previewFeatures = [\"driverAdapters\"]\n  output          = \"PrismaNeonClient\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"NEON_DB_URL\")\n}\n\nenum Role {\n  MASTER\n  ADMIN\n  USER\n}\n\nmodel User {\n  id       Int    @id @default(autoincrement())\n  uid      String @unique\n  username String @default(\"Skeeter Rabbit\")\n  role     Role   @default(USER)\n  email    String @unique\n  iconUrl  String @default(\"\")\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n",
-  "inlineSchemaHash": "5df99957574b29aef330ce701db15d682a93171c39cba5725ef9ba46c21a36d6",
+  "inlineSchema": "generator client {\n  provider        = \"prisma-client-js\"\n  previewFeatures = [\"driverAdapters\"]\n  output          = \"PrismaNeonClient\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"NEON_DB_URL\")\n}\n\nenum Role {\n  MASTER\n  ADMIN\n  USER\n}\n\nmodel User {\n  id        Int    @id @default(autoincrement())\n  uid       String @unique\n  username  String @default(\"Skeeter Rabbit\")\n  role      Role   @default(USER)\n  email     String @unique\n  iconUrl   String @default(\"\")\n  discordId String @default(\"\")\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n",
+  "inlineSchemaHash": "f754605f0641b9ec3a1f0cc631c9a79b11b26c7372a9cc24fe4ef84d0821dc78",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"uid\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"username\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"enum\",\"type\":\"Role\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"iconUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"uid\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"username\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"enum\",\"type\":\"Role\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"iconUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"discordId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: () => require('./query_engine_bg.js'),

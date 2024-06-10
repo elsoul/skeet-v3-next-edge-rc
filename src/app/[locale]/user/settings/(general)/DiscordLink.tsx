@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/card'
 
 import { DiscordLogoIcon } from '@radix-ui/react-icons'
+import { cn } from '@/lib/utils'
 
 export default function DiscordLink() {
   const t = useTranslations()
@@ -24,7 +25,10 @@ export default function DiscordLink() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="flex flex-row items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+            <span
+              className={cn(`block h-1.5 w-1.5 rounded-full bg-gray-400`)}
+            />
             {t('Settings.discordLink.notYet')}
           </p>
         </CardContent>
