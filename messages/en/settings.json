@@ -1,5 +1,14 @@
 {
   "Settings": {
-    "title": "Settings"
+    "nav": {
+      "general": "General"
+    },
+    "title": "Settings",
+    "discordLink": {
+      "title": "Discord Integration",
+      "description": "Set up your account integration with Discord.",
+      "notYet": "Not yet integrated. For better service, please integrate using the button below.",
+      "linking": "Account currently linked:"
+    }
   }
 }

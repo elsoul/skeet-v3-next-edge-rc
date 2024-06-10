@@ -67,7 +67,8 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <body
         className={cn(
-          `${inter.variable} ${notoSansJP.variable} overflow-hidden`,
+          'overflow-hidden',
+          `${inter.variable} ${notoSansJP.variable}`,
         )}
       >
         <ThemeProvider

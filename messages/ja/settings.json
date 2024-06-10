@@ -1,5 +1,16 @@
 {
   "Settings": {
-    "title": "設定"
+    "nav": {
+      "general": "全般"
+    },
+    "title": "設定",
+    "discordLink": {
+      "title": "Discord 連携",
+      "description": "Discord とのアカウント連携を設定します。",
+      "notYet": "まだ連携していません。より良いサービスのため、下記ボタンより連携してください。",
+      "linking": "連携中のアカウント:",
+      "linkButton": "連携する",
+      "unlinkButton": "連携を解除する"
+    }
   }
 }
