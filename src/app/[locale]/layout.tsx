@@ -65,7 +65,11 @@ export default async function LocaleLayout({
   const messages = await getMessages()
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={cn(`${inter.variable} ${notoSansJP.variable}`)}>
+      <body
+        className={cn(
+          `${inter.variable} ${notoSansJP.variable} overflow-hidden`,
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
