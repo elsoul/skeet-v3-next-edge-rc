@@ -6,7 +6,6 @@ import { updateLinkedDiscordInfo } from '@/queries/user/update'
 
 export default async function discordLinkAction(code: string) {
   try {
-    console.log('code here', code)
     const session = await auth()
     if (!session?.user?.id) {
       throw new Error('User not found')
