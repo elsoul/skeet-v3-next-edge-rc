@@ -31,7 +31,6 @@ export default function SignInForm() {
         router.push(DEFAULT_PATHS.verifyEmail)
       } catch (e) {
         if (e instanceof Error) {
-          console.error(e)
           toast({
             title: t('Auth.errorSignInTitle'),
             description: t('Auth.errorSignInDescription'),

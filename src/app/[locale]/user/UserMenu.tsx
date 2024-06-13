@@ -37,7 +37,10 @@ export default function UserMenu() {
         })
       } catch (e) {
         if (e instanceof Error) {
-          console.error(e)
+          toast({
+            title: t('Auth.errorSignOutTitle'),
+            description: t('Auth.errorSignOutDescription'),
+          })
         }
       }
     })

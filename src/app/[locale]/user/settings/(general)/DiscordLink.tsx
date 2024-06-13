@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils'
 import { User } from '@/prisma/neon/PrismaNeonClient'
 import Image from 'next/image'
 import { appInfo } from '@/app/config'
+import DiscordUnlinkButton from './DiscordUnlinkButton'
 
 type Props = {
   user: User
@@ -62,9 +63,7 @@ export default function DiscordLink({ user }: Props) {
         </CardContent>
         <CardFooter className="border-t px-6 py-4">
           {isLinkedDiscord ? (
-            <Button variant="outline">
-              {t('Settings.discordLink.unlinkButton')}
-            </Button>
+            <DiscordUnlinkButton />
           ) : (
             <a href={discordLoginLink}>
               <Button>

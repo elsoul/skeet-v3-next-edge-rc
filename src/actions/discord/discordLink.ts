@@ -30,6 +30,7 @@ export default async function discordLinkAction(code: string) {
     })
   } catch (e) {
     if (e instanceof Error) {
+      console.error(e)
       throw e
     }
   }

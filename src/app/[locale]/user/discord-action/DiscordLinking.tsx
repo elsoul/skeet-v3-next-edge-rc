@@ -29,7 +29,6 @@ export default function DiscordLinking() {
           await discordLinkAction(code)
           setLinked(true)
         } catch (e) {
-          console.error(e)
           toast({
             title: t('Settings.discordLink.errorTitle'),
             description: t('Settings.discordLink.errorDescription'),
