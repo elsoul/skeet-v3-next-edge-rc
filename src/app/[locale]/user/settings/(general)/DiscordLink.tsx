@@ -8,19 +8,25 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-
-import { User } from '@/prisma/neon/PrismaNeonClient'
-
 import { DiscordLogoIcon } from '@radix-ui/react-icons'
 import { cn } from '@/lib/utils'
+
+import { User } from '@/prisma/neon/PrismaNeonClient'
+import Image from 'next/image'
+import { appInfo } from '@/app/config'
 
 type Props = {
   user: User
 }
 
+const discordLoginLink =
+  process.env.NODE_ENV === 'production'
+    ? `https://discord.com/api/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&redirect_uri=https%3A%2F%2F${appInfo.domain}%2Fuser%2Fdiscord-action&response_type=code&scope=identify%20email`
+    : `https://discord.com/api/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2Fuser%2Fdiscord-action&response_type=code&scope=identify%20email`
+
 export default function DiscordLink({ user }: Props) {
   const t = useTranslations()
-  console.log(user)
+  const isLinkedDiscord = user.discordId !== ''
 
   return (
     <>
@@ -34,16 +40,39 @@ export default function DiscordLink({ user }: Props) {
         <CardContent>
           <p className="flex flex-row items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400">
             <span
-              className={cn(`block h-1.5 w-1.5 rounded-full bg-gray-400`)}
+              className={cn(
+                isLinkedDiscord ? 'bg-green-400' : 'bg-gray-400',
+                `block h-1.5 w-1.5 rounded-full`,
+              )}
             />
-            {t('Settings.discordLink.notYet')}
+            {isLinkedDiscord && (
+              <Image
+                src={user.discordIconUrl}
+                alt="Discord icon"
+                className="h-8 w-8 rounded-full"
+                width={32}
+                height={32}
+                unoptimized
+              />
+            )}
+            {isLinkedDiscord
+              ? `${t('Settings.discordLink.linking')}: ${user.discordUsername}`
+              : t('Settings.discordLink.notYet')}
           </p>
         </CardContent>
         <CardFooter className="border-t px-6 py-4">
-          <Button>
-            <DiscordLogoIcon className="mr-2 h-6 w-6" />
-            {t('Settings.discordLink.linkButton')}
-          </Button>
+          {isLinkedDiscord ? (
+            <Button variant="outline">
+              {t('Settings.discordLink.unlinkButton')}
+            </Button>
+          ) : (
+            <a href={discordLoginLink}>
+              <Button>
+                <DiscordLogoIcon className="mr-2 h-6 w-6" />
+                {t('Settings.discordLink.linkButton')}
+              </Button>
+            </a>
+          )}
         </CardFooter>
       </Card>
     </>

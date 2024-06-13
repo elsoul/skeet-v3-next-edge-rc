@@ -11,6 +11,10 @@ declare global {
       [key: string]: string | undefined
       SKEET_AUTH_DB: D1Database
       NEON_DB_URL: string
+      OPENAI_API_KEY: string
+      DISCORD_TOKEN: string
+      DISCORD_CLIENT_ID: string
+      DISCORD_CLIENT_SECRET: string
     }
   }
 }

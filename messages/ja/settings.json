@@ -8,13 +8,15 @@
       "title": "Discord 連携",
       "description": "Discord とのアカウント連携を設定します。",
       "notYet": "まだ連携していません。より良いサービスのため、下記ボタンより連携してください。",
-      "linking": "連携中のアカウント:",
+      "linking": "連携中のアカウント",
       "linkButton": "連携する",
       "unlinkButton": "連携を解除する",
       "confirmingTitle": "アカウントを連携しています",
       "confirmingDescription": "Discord とのアカウント連携を設定しています。しばらくお待ちください。",
       "confirmedTitle": "アカウントを連携しました",
       "confirmedDescription": "Discord とのアカウント連携が完了しました。",
+      "errorTitle": "認証エラー",
+      "errorDescription": "エラーが発生しました。もう一度お試しください。",
       "backToSettings": "設定に戻る"
     }
   }

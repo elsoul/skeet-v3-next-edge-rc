@@ -32,7 +32,7 @@ Demo: https://skeet-v3-next-edge-rc.pages.dev/
 - AI-powered Products Ready
 - Cloudflare D1 + Prisma
 - Next.js App Router
-- React Compiler (No more useMemo and useCallback)
+- React Compiler (Always optimizes memoization for production)
 - Passwordless Sign-in (Magic Link)
 - Green Coding
 

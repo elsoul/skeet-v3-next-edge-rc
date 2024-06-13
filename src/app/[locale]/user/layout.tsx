@@ -17,7 +17,6 @@ export default async function UserLayout({ children }: Props) {
   if (!session || !session.user?.id) {
     redirect(DEFAULT_PATHS.home)
   }
-  console.log(session)
 
   return (
     <>
