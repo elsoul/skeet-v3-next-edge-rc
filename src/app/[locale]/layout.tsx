@@ -70,6 +70,7 @@ export default async function LocaleLayout({
           'overflow-hidden',
           `${inter.variable} ${notoSansJP.variable}`,
         )}
+        suppressHydrationWarning
       >
         <ThemeProvider
           attribute="class"

@@ -9,11 +9,18 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
+import { User } from '@/prisma/neon/PrismaNeonClient'
+
 import { DiscordLogoIcon } from '@radix-ui/react-icons'
 import { cn } from '@/lib/utils'
 
-export default function DiscordLink() {
+type Props = {
+  user: User
+}
+
+export default function DiscordLink({ user }: Props) {
   const t = useTranslations()
+  console.log(user)
 
   return (
     <>
@@ -25,7 +32,7 @@ export default function DiscordLink() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="flex flex-row items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="flex flex-row items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400">
             <span
               className={cn(`block h-1.5 w-1.5 rounded-full bg-gray-400`)}
             />

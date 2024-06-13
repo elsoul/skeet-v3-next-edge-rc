@@ -928,6 +928,8 @@ export namespace Prisma {
     email: string | null
     iconUrl: string | null
     discordId: string | null
+    discordIconUrl: string | null
+    discordUsername: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -940,6 +942,8 @@ export namespace Prisma {
     email: string | null
     iconUrl: string | null
     discordId: string | null
+    discordIconUrl: string | null
+    discordUsername: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -952,6 +956,8 @@ export namespace Prisma {
     email: number
     iconUrl: number
     discordId: number
+    discordIconUrl: number
+    discordUsername: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -974,6 +980,8 @@ export namespace Prisma {
     email?: true
     iconUrl?: true
     discordId?: true
+    discordIconUrl?: true
+    discordUsername?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -986,6 +994,8 @@ export namespace Prisma {
     email?: true
     iconUrl?: true
     discordId?: true
+    discordIconUrl?: true
+    discordUsername?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -998,6 +1008,8 @@ export namespace Prisma {
     email?: true
     iconUrl?: true
     discordId?: true
+    discordIconUrl?: true
+    discordUsername?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1097,6 +1109,8 @@ export namespace Prisma {
     email: string
     iconUrl: string
     discordId: string
+    discordIconUrl: string
+    discordUsername: string
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1128,6 +1142,8 @@ export namespace Prisma {
     email?: boolean
     iconUrl?: boolean
     discordId?: boolean
+    discordIconUrl?: boolean
+    discordUsername?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1140,6 +1156,8 @@ export namespace Prisma {
     email?: boolean
     iconUrl?: boolean
     discordId?: boolean
+    discordIconUrl?: boolean
+    discordUsername?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
@@ -1157,6 +1175,8 @@ export namespace Prisma {
       email: string
       iconUrl: string
       discordId: string
+      discordIconUrl: string
+      discordUsername: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -1586,6 +1606,8 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly iconUrl: FieldRef<"User", 'String'>
     readonly discordId: FieldRef<"User", 'String'>
+    readonly discordIconUrl: FieldRef<"User", 'String'>
+    readonly discordUsername: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -1898,6 +1920,8 @@ export namespace Prisma {
     email: 'email',
     iconUrl: 'iconUrl',
     discordId: 'discordId',
+    discordIconUrl: 'discordIconUrl',
+    discordUsername: 'discordUsername',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -2010,6 +2034,8 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     iconUrl?: StringFilter<"User"> | string
     discordId?: StringFilter<"User"> | string
+    discordIconUrl?: StringFilter<"User"> | string
+    discordUsername?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }
@@ -2022,6 +2048,8 @@ export namespace Prisma {
     email?: SortOrder
     iconUrl?: SortOrder
     discordId?: SortOrder
+    discordIconUrl?: SortOrder
+    discordUsername?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2037,6 +2065,8 @@ export namespace Prisma {
     role?: EnumRoleFilter<"User"> | $Enums.Role
     iconUrl?: StringFilter<"User"> | string
     discordId?: StringFilter<"User"> | string
+    discordIconUrl?: StringFilter<"User"> | string
+    discordUsername?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }, "id" | "uid" | "email">
@@ -2049,6 +2079,8 @@ export namespace Prisma {
     email?: SortOrder
     iconUrl?: SortOrder
     discordId?: SortOrder
+    discordIconUrl?: SortOrder
+    discordUsername?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -2069,6 +2101,8 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     iconUrl?: StringWithAggregatesFilter<"User"> | string
     discordId?: StringWithAggregatesFilter<"User"> | string
+    discordIconUrl?: StringWithAggregatesFilter<"User"> | string
+    discordUsername?: StringWithAggregatesFilter<"User"> | string
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -2080,6 +2114,8 @@ export namespace Prisma {
     email: string
     iconUrl?: string
     discordId?: string
+    discordIconUrl?: string
+    discordUsername?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2092,6 +2128,8 @@ export namespace Prisma {
     email: string
     iconUrl?: string
     discordId?: string
+    discordIconUrl?: string
+    discordUsername?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2103,6 +2141,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     iconUrl?: StringFieldUpdateOperationsInput | string
     discordId?: StringFieldUpdateOperationsInput | string
+    discordIconUrl?: StringFieldUpdateOperationsInput | string
+    discordUsername?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2115,6 +2155,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     iconUrl?: StringFieldUpdateOperationsInput | string
     discordId?: StringFieldUpdateOperationsInput | string
+    discordIconUrl?: StringFieldUpdateOperationsInput | string
+    discordUsername?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2127,6 +2169,8 @@ export namespace Prisma {
     email: string
     iconUrl?: string
     discordId?: string
+    discordIconUrl?: string
+    discordUsername?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2138,6 +2182,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     iconUrl?: StringFieldUpdateOperationsInput | string
     discordId?: StringFieldUpdateOperationsInput | string
+    discordIconUrl?: StringFieldUpdateOperationsInput | string
+    discordUsername?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2150,6 +2196,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     iconUrl?: StringFieldUpdateOperationsInput | string
     discordId?: StringFieldUpdateOperationsInput | string
+    discordIconUrl?: StringFieldUpdateOperationsInput | string
+    discordUsername?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2206,6 +2254,8 @@ export namespace Prisma {
     email?: SortOrder
     iconUrl?: SortOrder
     discordId?: SortOrder
+    discordIconUrl?: SortOrder
+    discordUsername?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2222,6 +2272,8 @@ export namespace Prisma {
     email?: SortOrder
     iconUrl?: SortOrder
     discordId?: SortOrder
+    discordIconUrl?: SortOrder
+    discordUsername?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2234,6 +2286,8 @@ export namespace Prisma {
     email?: SortOrder
     iconUrl?: SortOrder
     discordId?: SortOrder
+    discordIconUrl?: SortOrder
+    discordUsername?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }

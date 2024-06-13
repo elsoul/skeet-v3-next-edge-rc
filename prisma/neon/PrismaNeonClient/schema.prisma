@@ -16,13 +16,15 @@ enum Role {
 }
 
 model User {
-  id        Int    @id @default(autoincrement())
-  uid       String @unique
-  username  String @default("Skeeter Rabbit")
-  role      Role   @default(USER)
-  email     String @unique
-  iconUrl   String @default("")
-  discordId String @default("")
+  id              Int    @id @default(autoincrement())
+  uid             String @unique
+  username        String @default("Skeeter Rabbit")
+  role            Role   @default(USER)
+  email           String @unique
+  iconUrl         String @default("")
+  discordId       String @default("")
+  discordIconUrl  String @default("")
+  discordUsername String @default("")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
