@@ -101,6 +101,23 @@ exports.Prisma.UserScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.ChatScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  userId: 'userId'
+};
+
+exports.Prisma.MessageScalarFieldEnum = {
+  id: 'id',
+  role: 'role',
+  content: 'content',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  chatId: 'chatId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -116,8 +133,17 @@ exports.Role = exports.$Enums.Role = {
   USER: 'USER'
 };
 
+exports.MessageRole = exports.$Enums.MessageRole = {
+  SYSTEM: 'SYSTEM',
+  USER: 'USER',
+  ASSISTANT: 'ASSISTANT',
+  TOOL: 'TOOL'
+};
+
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Chat: 'Chat',
+  Message: 'Message'
 };
 /**
  * Create the Client
@@ -167,13 +193,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider        = \"prisma-client-js\"\n  previewFeatures = [\"driverAdapters\"]\n  output          = \"PrismaNeonClient\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"NEON_DB_URL\")\n}\n\nenum Role {\n  MASTER\n  ADMIN\n  USER\n}\n\nmodel User {\n  id              Int    @id @default(autoincrement())\n  uid             String @unique\n  username        String @default(\"Skeeter Rabbit\")\n  role            Role   @default(USER)\n  email           String @unique\n  iconUrl         String @default(\"\")\n  discordId       String @default(\"\")\n  discordIconUrl  String @default(\"\")\n  discordUsername String @default(\"\")\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n",
-  "inlineSchemaHash": "9034e8c4e3fecf7f5f4c890984d8551fc2fb4cb1ed65ddb42974bd2a56646d7f",
+  "inlineSchema": "generator client {\n  provider        = \"prisma-client-js\"\n  previewFeatures = [\"driverAdapters\"]\n  output          = \"PrismaNeonClient\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"NEON_DB_URL\")\n}\n\nenum Role {\n  MASTER\n  ADMIN\n  USER\n}\n\nenum MessageRole {\n  SYSTEM\n  USER\n  ASSISTANT\n  TOOL\n}\n\nmodel User {\n  id              Int    @id @default(autoincrement())\n  uid             String @unique\n  username        String @default(\"Skeeter Rabbit\")\n  role            Role   @default(USER)\n  email           String @unique\n  iconUrl         String @default(\"\")\n  discordId       String @default(\"\")\n  discordIconUrl  String @default(\"\")\n  discordUsername String @default(\"\")\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  Chat      Chat[]\n}\n\nmodel Chat {\n  id        String    @id @default(uuid())\n  title     String    @default(\"\")\n  createdAt DateTime  @default(now())\n  updatedAt DateTime  @updatedAt\n  userId    Int\n  user      User      @relation(fields: [userId], references: [id])\n  messages  Message[]\n}\n\nmodel Message {\n  id        String      @id @default(uuid())\n  role      MessageRole @default(USER)\n  content   String      @default(\"\")\n  createdAt DateTime    @default(now())\n  updatedAt DateTime    @updatedAt\n  chatId    String\n  chat      Chat        @relation(fields: [chatId], references: [id])\n}\n",
+  "inlineSchemaHash": "6d14500bb67452adfe0306ca227d05352d427011c54268b20809ccf2345b9c9e",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"uid\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"username\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"enum\",\"type\":\"Role\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"iconUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"discordId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"discordIconUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"discordUsername\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"uid\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"username\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"enum\",\"type\":\"Role\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"iconUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"discordId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"discordIconUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"discordUsername\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"Chat\",\"kind\":\"object\",\"type\":\"Chat\",\"relationName\":\"ChatToUser\"}],\"dbName\":null},\"Chat\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"ChatToUser\"},{\"name\":\"messages\",\"kind\":\"object\",\"type\":\"Message\",\"relationName\":\"ChatToMessage\"}],\"dbName\":null},\"Message\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"enum\",\"type\":\"MessageRole\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"chatId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"chat\",\"kind\":\"object\",\"type\":\"Chat\",\"relationName\":\"ChatToMessage\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: () => require('./query_engine_bg.js'),

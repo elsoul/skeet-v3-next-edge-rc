@@ -15,6 +15,13 @@ enum Role {
   USER
 }
 
+enum MessageRole {
+  SYSTEM
+  USER
+  ASSISTANT
+  TOOL
+}
+
 model User {
   id              Int    @id @default(autoincrement())
   uid             String @unique
@@ -28,4 +35,25 @@ model User {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Chat      Chat[]
+}
+
+model Chat {
+  id        String    @id @default(uuid())
+  title     String    @default("")
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id])
+  messages  Message[]
+}
+
+model Message {
+  id        String      @id @default(uuid())
+  role      MessageRole @default(USER)
+  content   String      @default("")
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  chatId    String
+  chat      Chat        @relation(fields: [chatId], references: [id])
 }

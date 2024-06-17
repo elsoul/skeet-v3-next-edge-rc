@@ -17,3 +17,18 @@ export function getGravatarUrl(email: string | null | undefined): string {
   const hash = md5(trimmedEmail).toString()
   return `https://www.gravatar.com/avatar/${hash}`
 }
+
+export const formatNumber = (value: number) =>
+  new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(value)
+
+export const runAsyncFnWithoutBlocking = (
+  fn: (...args: any) => Promise<any>,
+) => {
+  fn()
+}
+
+export const sleep = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms))
