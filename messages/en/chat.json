@@ -3,6 +3,8 @@
     "title": "AI Chats",
     "noChats": "You have no chats",
     "startChat": "Start the best AI chat for your situation.",
-    "addChat": "Add a chat"
+    "addChat": "Add a chat",
+    "sendMessageErrorTitle": "Failed to Send Message",
+    "sendMessageErrorDescription": "An error occurred while sending the message. Please try again."
   }
 }

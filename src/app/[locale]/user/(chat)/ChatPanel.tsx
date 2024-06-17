@@ -1,7 +1,4 @@
-import { useState } from 'react'
-
 import { PromptForm } from './PromptForm'
-import { ButtonScrollToBottom } from './ButtonScrollToBottom'
 
 import { useAIState, useActions, useUIState } from 'ai/rsc'
 import { AI } from '@/actions/chat/chatProvider'
@@ -12,18 +9,9 @@ export interface ChatPanelProps {
   title?: string
   input: string
   setInput: (value: string) => void
-  isAtBottom: boolean
-  scrollToBottom: () => void
 }
 
-export function ChatPanel({
-  id,
-  title,
-  input,
-  setInput,
-  isAtBottom,
-  scrollToBottom,
-}: ChatPanelProps) {
+export function ChatPanel({ id, title, input, setInput }: ChatPanelProps) {
   const [aiState] = useAIState()
   const [messages, setMessages] = useUIState<typeof AI>()
   const { submitUserMessage } = useActions()
@@ -52,14 +40,9 @@ export function ChatPanel({
   ]
 
   return (
-    <div className="fixed inset-x-0 bottom-0 w-full bg-gradient-to-b from-muted/30 from-0% to-muted/30 to-50% duration-300 ease-in-out animate-in dark:from-background/10 dark:from-10% dark:to-background/80 peer-[[data-state=open]]:group-[]:lg:pl-[250px] peer-[[data-state=open]]:group-[]:xl:pl-[300px]">
-      <ButtonScrollToBottom
-        isAtBottom={isAtBottom}
-        scrollToBottom={scrollToBottom}
-      />
-
-      <div className="mx-auto sm:max-w-2xl sm:px-4">
-        <div className="mb-4 grid grid-cols-2 gap-2 px-4 sm:px-0">
+    <div className="relative mt-auto w-full">
+      <div className="mx-auto w-full max-w-2xl sm:px-4">
+        <div className="mb-4 grid grid-cols-2 gap-2 px-4">
           {messages.length === 0 &&
             exampleMessages.map((example, index) => (
               <div

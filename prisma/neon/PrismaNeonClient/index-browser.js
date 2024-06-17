@@ -165,13 +165,6 @@ exports.Role = exports.$Enums.Role = {
   USER: 'USER'
 };
 
-exports.MessageRole = exports.$Enums.MessageRole = {
-  SYSTEM: 'SYSTEM',
-  USER: 'USER',
-  ASSISTANT: 'ASSISTANT',
-  TOOL: 'TOOL'
-};
-
 exports.Prisma.ModelName = {
   User: 'User',
   Chat: 'Chat',

@@ -6,7 +6,7 @@ import { submitUserMessage } from './chatSubmit'
 import { BotMessage, UserMessage } from './chatMessages'
 
 import { auth } from '@/auth'
-import { Chat, Message, MessageRole } from '@/prisma/neon/PrismaNeonClient'
+import { Chat, Message } from '@/prisma/neon/PrismaNeonClient'
 import { getLoggedInUser } from '@/queries/user/get'
 
 export type AIState = {
@@ -73,13 +73,13 @@ export const AI = createAI<AIState, UIState>({
 
 export const getUIStateFromAIState = (aiState: AIState) => {
   return aiState.messages
-    .filter((message) => message.role !== MessageRole.SYSTEM)
+    .filter((message) => message.role !== 'system')
     .map((message, index) => ({
       id: `${aiState.chatId}-${index}`,
       display:
-        message.role === MessageRole.USER ? (
+        message.role === 'user' ? (
           <UserMessage>{message.content as string}</UserMessage>
-        ) : message.role === MessageRole.ASSISTANT &&
+        ) : message.role === 'assistant' &&
           typeof message.content === 'string' ? (
           <BotMessage content={message.content} />
         ) : null,

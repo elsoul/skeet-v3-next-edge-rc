@@ -1,11 +1,9 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useTransition } from 'react'
 import Textarea from 'react-textarea-autosize'
 
 import { useActions, useUIState } from 'ai/rsc'
-
-import { UserMessage } from '@/actions/chat/chatMessages'
 import { AI } from '@/actions/chat/chatProvider'
 import { Button } from '@/components/ui/button'
 
@@ -15,8 +13,11 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { useEnterSubmit } from '@/hooks/utils/useEnterSubmit'
-import { useRouter } from 'next/navigation'
-import { ArrowUpIcon, EnterIcon, PlusIcon } from '@radix-ui/react-icons'
+
+import { ArrowUpIcon } from '@radix-ui/react-icons'
+
+import { useToast } from '@/components/ui/use-toast'
+import { useTranslations } from 'next-intl'
 
 export function PromptForm({
   input,
@@ -25,11 +26,13 @@ export function PromptForm({
   input: string
   setInput: (value: string) => void
 }) {
-  const router = useRouter()
+  const t = useTranslations()
   const { formRef, onKeyDown } = useEnterSubmit()
   const inputRef = useRef<HTMLTextAreaElement>(null)
-  const { submitUserMessage } = useActions()
+  const [isPending, startTransition] = useTransition()
   const [_, setMessages] = useUIState<typeof AI>()
+  const { toast } = useToast()
+  const { submitUserMessage } = useActions()
 
   useEffect(() => {
     if (inputRef.current) {
@@ -37,52 +40,28 @@ export function PromptForm({
     }
   }, [])
 
-  return (
-    <form
-      ref={formRef}
-      onSubmit={async (e: any) => {
-        e.preventDefault()
-
-        // Blur focus on mobile
-        if (window.innerWidth < 600) {
-          e.target['message']?.blur()
-        }
-
-        const value = input.trim()
+  const submitAction = async (formData: FormData) => {
+    startTransition(async () => {
+      try {
+        const responseMessage = await submitUserMessage(
+          formData.get('message') as string,
+        )
         setInput('')
-        if (!value) return
-
-        // Optimistically add user message UI
-        setMessages((currentMessages) => [
-          ...currentMessages,
-          {
-            id: '',
-            display: <UserMessage>{value}</UserMessage>,
-          },
-        ])
-
-        // Submit and get response message
-        const responseMessage = await submitUserMessage(value)
         setMessages((currentMessages) => [...currentMessages, responseMessage])
-      }}
-    >
-      <div className="relative flex max-h-60 w-full grow flex-col overflow-hidden bg-background px-8 sm:rounded-md sm:border sm:px-12">
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button
-              variant="outline"
-              size="icon"
-              className="absolute left-0 top-[14px] size-8 rounded-full bg-background p-0 sm:left-4"
-              onClick={() => {
-                router.push('/new')
-              }}
-            >
-              <PlusIcon className="h-6 w-6" />
-              <span className="sr-only">New Chat</span>
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>New Chat</TooltipContent>
-        </Tooltip>
+      } catch (e) {
+        if (e instanceof Error) {
+          toast({
+            title: t('Chat.sendMessageErrorTitle'),
+            description: t('Chat.sendMessageErrorDescription'),
+          })
+        }
+      }
+    })
+  }
+
+  return (
+    <form ref={formRef} action={submitAction}>
+      <div className="relative flex max-h-60 w-full grow flex-col overflow-hidden bg-background pr-8 sm:rounded-md sm:border sm:pr-12">
         <Textarea
           ref={inputRef}
           tabIndex={0}
@@ -101,7 +80,11 @@ export function PromptForm({
         <div className="absolute right-0 top-[13px] sm:right-4">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button type="submit" size="icon" disabled={input === ''}>
+              <Button
+                type="submit"
+                size="icon"
+                disabled={input === '' || isPending}
+              >
                 <ArrowUpIcon className="h-6 w-6" />
                 <span className="sr-only">Send message</span>
               </Button>

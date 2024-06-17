@@ -98,53 +98,43 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
   }
 
   return (
-    <div className="codeblock relative w-full bg-zinc-950 font-sans">
-      <div className="flex w-full items-center justify-between bg-zinc-800 px-6 py-2 pr-4 text-zinc-100">
+    <div className="mx-auto mb-6 mt-2 w-full rounded-lg bg-zinc-950 md:max-w-md lg:max-w-xl">
+      <div className="flex items-center justify-between rounded-t-lg bg-zinc-800 px-6 py-1 pr-4 text-zinc-100">
         <span className="text-xs lowercase">{language}</span>
         <div className="flex items-center space-x-1">
           <Button
             variant="ghost"
-            className="hover:bg-zinc-800 focus-visible:ring-1 focus-visible:ring-slate-700 focus-visible:ring-offset-0"
+            className="hover:bg-zinc-600 hover:text-white focus-visible:ring-1 focus-visible:ring-slate-700 focus-visible:ring-offset-0"
             onClick={downloadAsFile}
             size="icon"
           >
-            <DownloadIcon className="h-6 w-6" />
+            <DownloadIcon className="h-4 w-4" />
             <span className="sr-only">Download</span>
           </Button>
           <Button
             variant="ghost"
             size="icon"
-            className="text-xs hover:bg-zinc-800 focus-visible:ring-1 focus-visible:ring-slate-700 focus-visible:ring-offset-0"
+            className="text-xs hover:bg-zinc-600 hover:text-white focus-visible:ring-1 focus-visible:ring-slate-700 focus-visible:ring-offset-0"
             onClick={onCopy}
           >
             {isCopied ? (
-              <CheckIcon className="h-6 w-6" />
+              <CheckIcon className="h-4 w-4" />
             ) : (
-              <ClipboardCopyIcon className="h-6 w-6" />
+              <ClipboardCopyIcon className="h-4 w-4" />
             )}
             <span className="sr-only">Copy code</span>
           </Button>
         </div>
       </div>
+
       <SyntaxHighlighter
         language={language}
         style={coldarkDark}
-        PreTag="div"
         showLineNumbers
+        PreTag="div"
         customStyle={{
-          margin: 0,
           width: '100%',
-          background: 'transparent',
-          padding: '1.5rem 1rem',
-        }}
-        lineNumberStyle={{
-          userSelect: 'none',
-        }}
-        codeTagProps={{
-          style: {
-            fontSize: '0.9rem',
-            fontFamily: 'var(--font-mono)',
-          },
+          maxWidth: 'calc(100vw - 80px)',
         }}
       >
         {value}

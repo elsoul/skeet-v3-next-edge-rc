@@ -1,7 +1,7 @@
 export const runtime = 'edge'
 
 import { getTranslations } from 'next-intl/server'
-import { appInfo } from './config'
+import { appInfo, locales } from './config'
 
 type Props = {
   children: React.ReactNode
@@ -11,9 +11,17 @@ type Props = {
 }
 
 export async function generateMetadata({ params: { locale } }: Props) {
-  const t = await getTranslations({ locale, namespace: 'Metadata' })
+  const t = await getTranslations({
+    locale: locale ? locale : locales[0],
+    namespace: 'Metadata',
+  })
 
   return {
+    metadataBase: new URL(
+      process.env.NODE_ENV === 'production'
+        ? `https://${appInfo.domain}`
+        : 'http://localhost:4200',
+    ),
     title: {
       template: `%s | ${t('appTitle')}`,
       default: t('defaultTitle'),

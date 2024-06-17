@@ -3,6 +3,8 @@
     "title": "AI チャット",
     "noChats": "チャット履歴がありません",
     "startChat": "状況に応じて最適なAIチャットを開始します。",
-    "addChat": "AIチャットを追加"
+    "addChat": "AIチャットを追加",
+    "sendMessageErrorTitle": "メッセージの送信に失敗しました",
+    "sendMessageErrorDescription": "メッセージの送信中にエラーが発生しました。もう一度お試しください。"
   }
 }

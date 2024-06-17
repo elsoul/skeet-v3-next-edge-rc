@@ -1,4 +1,4 @@
-import 'server-only'
+'use server'
 
 import { getMutableAIState, streamUI, createStreamableValue } from 'ai/rsc'
 import { openai } from '@ai-sdk/openai'
@@ -6,11 +6,7 @@ import { openai } from '@ai-sdk/openai'
 import { SpinnerMessage, BotMessage } from './chatMessages'
 import { AI } from './chatProvider'
 
-import { MessageRole } from '@/prisma/neon/PrismaNeonClient'
-
 export async function submitUserMessage(content: string) {
-  'use server'
-
   const aiState = getMutableAIState<typeof AI>()
 
   aiState.update({
@@ -20,7 +16,7 @@ export async function submitUserMessage(content: string) {
       {
         id: '',
         chatId: '',
-        role: MessageRole.USER,
+        role: 'user',
         content,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -35,7 +31,7 @@ export async function submitUserMessage(content: string) {
     model: openai('gpt-3.5-turbo'),
     initial: <SpinnerMessage />,
     system: `\
-    You are an useful assistant for the TypeScript Developers.`,
+    An assistant who knows everything and teaches politely. If I don't know, I will research before answering.`,
     messages: [
       ...aiState.get().messages.map((message: any) => ({
         role: message.role,
@@ -58,7 +54,7 @@ export async function submitUserMessage(content: string) {
             {
               id: '',
               chatId: '',
-              role: MessageRole.ASSISTANT,
+              role: 'assistant',
               content,
               createdAt: new Date(),
               updatedAt: new Date(),
@@ -74,6 +70,7 @@ export async function submitUserMessage(content: string) {
   })
 
   return {
+    id: '',
     display: result.value,
   }
 }

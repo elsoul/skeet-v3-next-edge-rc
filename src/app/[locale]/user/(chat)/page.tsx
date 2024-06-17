@@ -19,9 +19,11 @@ export default function UserChat() {
   const t = useTranslations()
   return (
     <>
-      <AI>
-        <Chat />
-      </AI>
+      <div className="w-full">
+        <AI>
+          <Chat />
+        </AI>
+      </div>
     </>
   )
 }

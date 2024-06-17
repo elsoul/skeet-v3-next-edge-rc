@@ -41,25 +41,11 @@ export namespace $Enums {
 
 export type Role = (typeof Role)[keyof typeof Role]
 
-
-export const MessageRole: {
-  SYSTEM: 'SYSTEM',
-  USER: 'USER',
-  ASSISTANT: 'ASSISTANT',
-  TOOL: 'TOOL'
-};
-
-export type MessageRole = (typeof MessageRole)[keyof typeof MessageRole]
-
 }
 
 export type Role = $Enums.Role
 
 export const Role: typeof $Enums.Role
-
-export type MessageRole = $Enums.MessageRole
-
-export const MessageRole: typeof $Enums.MessageRole
 
 /**
  * ##  Prisma Client ʲˢ
@@ -3242,7 +3228,7 @@ export namespace Prisma {
 
   export type MessageMinAggregateOutputType = {
     id: string | null
-    role: $Enums.MessageRole | null
+    role: string | null
     content: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -3251,7 +3237,7 @@ export namespace Prisma {
 
   export type MessageMaxAggregateOutputType = {
     id: string | null
-    role: $Enums.MessageRole | null
+    role: string | null
     content: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -3371,7 +3357,7 @@ export namespace Prisma {
 
   export type MessageGroupByOutputType = {
     id: string
-    role: $Enums.MessageRole
+    role: string
     content: string
     createdAt: Date
     updatedAt: Date
@@ -3427,7 +3413,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      role: $Enums.MessageRole
+      role: string
       content: string
       createdAt: Date
       updatedAt: Date
@@ -3854,7 +3840,7 @@ export namespace Prisma {
    */ 
   interface MessageFieldRefs {
     readonly id: FieldRef<"Message", 'String'>
-    readonly role: FieldRef<"Message", 'MessageRole'>
+    readonly role: FieldRef<"Message", 'String'>
     readonly content: FieldRef<"Message", 'String'>
     readonly createdAt: FieldRef<"Message", 'DateTime'>
     readonly updatedAt: FieldRef<"Message", 'DateTime'>
@@ -4323,20 +4309,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'MessageRole'
-   */
-  export type EnumMessageRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MessageRole'>
-    
-
-
-  /**
-   * Reference to a field of type 'MessageRole[]'
-   */
-  export type ListEnumMessageRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MessageRole[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -4505,7 +4477,7 @@ export namespace Prisma {
     OR?: MessageWhereInput[]
     NOT?: MessageWhereInput | MessageWhereInput[]
     id?: StringFilter<"Message"> | string
-    role?: EnumMessageRoleFilter<"Message"> | $Enums.MessageRole
+    role?: StringFilter<"Message"> | string
     content?: StringFilter<"Message"> | string
     createdAt?: DateTimeFilter<"Message"> | Date | string
     updatedAt?: DateTimeFilter<"Message"> | Date | string
@@ -4528,7 +4500,7 @@ export namespace Prisma {
     AND?: MessageWhereInput | MessageWhereInput[]
     OR?: MessageWhereInput[]
     NOT?: MessageWhereInput | MessageWhereInput[]
-    role?: EnumMessageRoleFilter<"Message"> | $Enums.MessageRole
+    role?: StringFilter<"Message"> | string
     content?: StringFilter<"Message"> | string
     createdAt?: DateTimeFilter<"Message"> | Date | string
     updatedAt?: DateTimeFilter<"Message"> | Date | string
@@ -4553,7 +4525,7 @@ export namespace Prisma {
     OR?: MessageScalarWhereWithAggregatesInput[]
     NOT?: MessageScalarWhereWithAggregatesInput | MessageScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Message"> | string
-    role?: EnumMessageRoleWithAggregatesFilter<"Message"> | $Enums.MessageRole
+    role?: StringWithAggregatesFilter<"Message"> | string
     content?: StringWithAggregatesFilter<"Message"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Message"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Message"> | Date | string
@@ -4720,7 +4692,7 @@ export namespace Prisma {
 
   export type MessageCreateInput = {
     id?: string
-    role?: $Enums.MessageRole
+    role?: string
     content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -4729,7 +4701,7 @@ export namespace Prisma {
 
   export type MessageUncheckedCreateInput = {
     id?: string
-    role?: $Enums.MessageRole
+    role?: string
     content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -4738,7 +4710,7 @@ export namespace Prisma {
 
   export type MessageUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    role?: EnumMessageRoleFieldUpdateOperationsInput | $Enums.MessageRole
+    role?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4747,7 +4719,7 @@ export namespace Prisma {
 
   export type MessageUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    role?: EnumMessageRoleFieldUpdateOperationsInput | $Enums.MessageRole
+    role?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4756,7 +4728,7 @@ export namespace Prisma {
 
   export type MessageCreateManyInput = {
     id?: string
-    role?: $Enums.MessageRole
+    role?: string
     content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -4765,7 +4737,7 @@ export namespace Prisma {
 
   export type MessageUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    role?: EnumMessageRoleFieldUpdateOperationsInput | $Enums.MessageRole
+    role?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4773,7 +4745,7 @@ export namespace Prisma {
 
   export type MessageUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    role?: EnumMessageRoleFieldUpdateOperationsInput | $Enums.MessageRole
+    role?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4989,13 +4961,6 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
-  export type EnumMessageRoleFilter<$PrismaModel = never> = {
-    equals?: $Enums.MessageRole | EnumMessageRoleFieldRefInput<$PrismaModel>
-    in?: $Enums.MessageRole[] | ListEnumMessageRoleFieldRefInput<$PrismaModel>
-    notIn?: $Enums.MessageRole[] | ListEnumMessageRoleFieldRefInput<$PrismaModel>
-    not?: NestedEnumMessageRoleFilter<$PrismaModel> | $Enums.MessageRole
-  }
-
   export type ChatRelationFilter = {
     is?: ChatWhereInput
     isNot?: ChatWhereInput
@@ -5026,16 +4991,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     chatId?: SortOrder
-  }
-
-  export type EnumMessageRoleWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.MessageRole | EnumMessageRoleFieldRefInput<$PrismaModel>
-    in?: $Enums.MessageRole[] | ListEnumMessageRoleFieldRefInput<$PrismaModel>
-    notIn?: $Enums.MessageRole[] | ListEnumMessageRoleFieldRefInput<$PrismaModel>
-    not?: NestedEnumMessageRoleWithAggregatesFilter<$PrismaModel> | $Enums.MessageRole
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumMessageRoleFilter<$PrismaModel>
-    _max?: NestedEnumMessageRoleFilter<$PrismaModel>
   }
 
   export type ChatCreateNestedManyWithoutUserInput = {
@@ -5162,10 +5117,6 @@ export namespace Prisma {
     connect?: ChatWhereUniqueInput
   }
 
-  export type EnumMessageRoleFieldUpdateOperationsInput = {
-    set?: $Enums.MessageRole
-  }
-
   export type ChatUpdateOneRequiredWithoutMessagesNestedInput = {
     create?: XOR<ChatCreateWithoutMessagesInput, ChatUncheckedCreateWithoutMessagesInput>
     connectOrCreate?: ChatCreateOrConnectWithoutMessagesInput
@@ -5285,23 +5236,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type NestedEnumMessageRoleFilter<$PrismaModel = never> = {
-    equals?: $Enums.MessageRole | EnumMessageRoleFieldRefInput<$PrismaModel>
-    in?: $Enums.MessageRole[] | ListEnumMessageRoleFieldRefInput<$PrismaModel>
-    notIn?: $Enums.MessageRole[] | ListEnumMessageRoleFieldRefInput<$PrismaModel>
-    not?: NestedEnumMessageRoleFilter<$PrismaModel> | $Enums.MessageRole
-  }
-
-  export type NestedEnumMessageRoleWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.MessageRole | EnumMessageRoleFieldRefInput<$PrismaModel>
-    in?: $Enums.MessageRole[] | ListEnumMessageRoleFieldRefInput<$PrismaModel>
-    notIn?: $Enums.MessageRole[] | ListEnumMessageRoleFieldRefInput<$PrismaModel>
-    not?: NestedEnumMessageRoleWithAggregatesFilter<$PrismaModel> | $Enums.MessageRole
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumMessageRoleFilter<$PrismaModel>
-    _max?: NestedEnumMessageRoleFilter<$PrismaModel>
-  }
-
   export type ChatCreateWithoutUserInput = {
     id?: string
     title?: string
@@ -5389,7 +5323,7 @@ export namespace Prisma {
 
   export type MessageCreateWithoutChatInput = {
     id?: string
-    role?: $Enums.MessageRole
+    role?: string
     content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5397,7 +5331,7 @@ export namespace Prisma {
 
   export type MessageUncheckedCreateWithoutChatInput = {
     id?: string
-    role?: $Enums.MessageRole
+    role?: string
     content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5472,7 +5406,7 @@ export namespace Prisma {
     OR?: MessageScalarWhereInput[]
     NOT?: MessageScalarWhereInput | MessageScalarWhereInput[]
     id?: StringFilter<"Message"> | string
-    role?: EnumMessageRoleFilter<"Message"> | $Enums.MessageRole
+    role?: StringFilter<"Message"> | string
     content?: StringFilter<"Message"> | string
     createdAt?: DateTimeFilter<"Message"> | Date | string
     updatedAt?: DateTimeFilter<"Message"> | Date | string
@@ -5559,7 +5493,7 @@ export namespace Prisma {
 
   export type MessageCreateManyChatInput = {
     id?: string
-    role?: $Enums.MessageRole
+    role?: string
     content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5567,7 +5501,7 @@ export namespace Prisma {
 
   export type MessageUpdateWithoutChatInput = {
     id?: StringFieldUpdateOperationsInput | string
-    role?: EnumMessageRoleFieldUpdateOperationsInput | $Enums.MessageRole
+    role?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5575,7 +5509,7 @@ export namespace Prisma {
 
   export type MessageUncheckedUpdateWithoutChatInput = {
     id?: StringFieldUpdateOperationsInput | string
-    role?: EnumMessageRoleFieldUpdateOperationsInput | $Enums.MessageRole
+    role?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5583,7 +5517,7 @@ export namespace Prisma {
 
   export type MessageUncheckedUpdateManyWithoutChatInput = {
     id?: StringFieldUpdateOperationsInput | string
-    role?: EnumMessageRoleFieldUpdateOperationsInput | $Enums.MessageRole
+    role?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

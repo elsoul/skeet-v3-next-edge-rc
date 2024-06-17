@@ -6,8 +6,7 @@ import { ChatPanel } from './ChatPanel'
 import { useEffect, useState } from 'react'
 import { useUIState, useAIState } from 'ai/rsc'
 import { Message } from '@/prisma/neon/PrismaNeonClient'
-import { usePathname, useRouter } from 'next/navigation'
-import { useScrollAnchor } from '@/hooks/utils/useScrollAnchor'
+import { useRouter } from 'next/navigation'
 
 export interface ChatProps extends React.ComponentProps<'div'> {
   initialMessages?: Message[]
@@ -16,7 +15,6 @@ export interface ChatProps extends React.ComponentProps<'div'> {
 
 export function Chat({ id, className }: ChatProps) {
   const router = useRouter()
-  const path = usePathname()
   const [input, setInput] = useState('')
   const [messages] = useUIState()
   const [aiState] = useAIState()
@@ -28,28 +26,17 @@ export function Chat({ id, className }: ChatProps) {
     }
   }, [aiState.messages, router])
 
-  const { messagesRef, scrollRef, visibilityRef, isAtBottom, scrollToBottom } =
-    useScrollAnchor()
-
   return (
-    <div
-      className="group w-full overflow-auto pl-0 peer-[[data-state=open]]:lg:pl-[250px] peer-[[data-state=open]]:xl:pl-[300px]"
-      ref={scrollRef}
-    >
+    <div className="flex h-[calc(100vh-3.5rem)] w-full flex-col lg:h-[calc(100vh-60px)]">
       <div
-        className={cn('pb-[200px] pt-4 md:pt-10', className)}
-        ref={messagesRef}
+        className={cn(
+          'mx-auto max-h-[calc(100vh-10rem)] w-full overflow-auto px-3 pt-4 md:pt-10',
+          className,
+        )}
       >
         <ChatList messages={messages} />
-        <div className="h-px w-full" ref={visibilityRef} />
       </div>
-      <ChatPanel
-        id={id}
-        input={input}
-        setInput={setInput}
-        isAtBottom={isAtBottom}
-        scrollToBottom={scrollToBottom}
-      />
+      <ChatPanel id={id} input={input} setInput={setInput} />
     </div>
   )
 }
