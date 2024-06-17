@@ -10,7 +10,7 @@ export function ChatList({ messages }: ChatList) {
   }
 
   return (
-    <div className="mx-auto w-full max-w-2xl">
+    <div className="mx-auto w-full max-w-2xl pb-20">
       {messages.map((message, index) => (
         <div key={message.id} className="mx-auto w-full max-w-2xl">
           {message.display}

@@ -3,6 +3,7 @@ import { PromptForm } from './PromptForm'
 import { useAIState, useActions, useUIState } from 'ai/rsc'
 import { AI } from '@/actions/chat/chatProvider'
 import { UserMessage } from '@/actions/chat/chatMessages'
+import { useTranslations } from 'next-intl'
 
 export interface ChatPanelProps {
   id?: string
@@ -12,32 +13,16 @@ export interface ChatPanelProps {
 }
 
 export function ChatPanel({ id, title, input, setInput }: ChatPanelProps) {
+  const t = useTranslations()
   const [aiState] = useAIState()
   const [messages, setMessages] = useUIState<typeof AI>()
   const { submitUserMessage } = useActions()
 
-  const exampleMessages = [
-    {
-      heading: 'What are the',
-      subheading: 'trending memecoins today?',
-      message: `What are the trending memecoins today?`,
-    },
-    {
-      heading: 'What is the price of',
-      subheading: '$DOGE right now?',
-      message: 'What is the price of $DOGE right now?',
-    },
-    {
-      heading: 'I would like to buy',
-      subheading: '42 $DOGE',
-      message: `I would like to buy 42 $DOGE`,
-    },
-    {
-      heading: 'What are some',
-      subheading: `recent events about $DOGE?`,
-      message: `What are some recent events about $DOGE?`,
-    },
-  ]
+  const exampleMessages = Array.from({ length: 4 }, (_, index) => ({
+    heading: t(`Chat.examples.heading${index + 1}`),
+    subheading: t(`Chat.examples.subheading${index + 1}`),
+    message: t(`Chat.examples.message${index + 1}`),
+  }))
 
   return (
     <div className="relative mt-auto w-full">
@@ -70,7 +55,7 @@ export function ChatPanel({ id, title, input, setInput }: ChatPanelProps) {
                 }}
               >
                 <div className="text-sm font-semibold">{example.heading}</div>
-                <div className="text-sm text-zinc-600">
+                <div className="text-sm text-zinc-600 dark:text-zinc-300">
                   {example.subheading}
                 </div>
               </div>

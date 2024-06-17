@@ -13,7 +13,7 @@ import ReactMarkdown, { Options } from 'react-markdown'
 export function UserMessage({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex w-full flex-row items-end justify-end">
-      <div className="space-y-2 rounded-full bg-zinc-100 px-4 py-2 dark:bg-zinc-700">
+      <div className="space-y-2 rounded-3xl bg-zinc-100 px-5 py-3 dark:bg-zinc-700">
         {children}
       </div>
     </div>
@@ -36,11 +36,17 @@ export function BotMessage({
       </div>
       <div className="ml-4 flex-1 space-y-2 px-1">
         <MemoizedReactMarkdown
-          className="prose dark:prose-invert prose-p:leading-relaxed w-full break-words"
+          className="prose dark:prose-invert w-full break-words"
           remarkPlugins={[remarkGfm, remarkMath]}
           components={{
             p({ children }) {
               return <p className="mb-2 last:mb-0">{children}</p>
+            },
+            ul({ children }) {
+              return <ul className="py-1">{children}</ul>
+            },
+            li({ children }) {
+              return <li className="py-1">{children}</li>
             },
             code({ node, inline, className, children, ...props }) {
               if (children.length) {

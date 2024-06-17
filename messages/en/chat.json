@@ -5,6 +5,22 @@
     "startChat": "Start the best AI chat for your situation.",
     "addChat": "Add a chat",
     "sendMessageErrorTitle": "Failed to Send Message",
-    "sendMessageErrorDescription": "An error occurred while sending the message. Please try again."
+    "sendMessageErrorDescription": "An error occurred while sending the message. Please try again.",
+    "sendMessage": "Send message",
+    "askMeAnything": "Ask me anything.",
+    "examples": {
+      "heading1": "What are the advantages",
+      "subheading1": "of serverless?",
+      "message1": "What are the advantages of serverless?",
+      "heading2": "Why is edge computing",
+      "subheading2": "considered superior?",
+      "message2": "Why is edge computing considered superior?",
+      "heading3": "Could you give some advice",
+      "subheading3": "on API Design?",
+      "message3": "Could you give some advice on API design?",
+      "heading4": "Could you briefly explain",
+      "subheading4": "about TypeScript?",
+      "message4": "Could you briefly explain TypeScript?"
+    }
   }
 }

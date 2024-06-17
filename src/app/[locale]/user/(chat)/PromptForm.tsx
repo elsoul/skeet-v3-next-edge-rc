@@ -18,6 +18,7 @@ import { ArrowUpIcon } from '@radix-ui/react-icons'
 
 import { useToast } from '@/components/ui/use-toast'
 import { useTranslations } from 'next-intl'
+import { UserMessage } from '@/actions/chat/chatMessages'
 
 export function PromptForm({
   input,
@@ -43,6 +44,15 @@ export function PromptForm({
   const submitAction = async (formData: FormData) => {
     startTransition(async () => {
       try {
+        setMessages((currentMessages) => [
+          ...currentMessages,
+          {
+            id: '',
+            display: (
+              <UserMessage>{formData.get('message') as string}</UserMessage>
+            ),
+          },
+        ])
         const responseMessage = await submitUserMessage(
           formData.get('message') as string,
         )
@@ -66,7 +76,7 @@ export function PromptForm({
           ref={inputRef}
           tabIndex={0}
           onKeyDown={onKeyDown}
-          placeholder="Send a message."
+          placeholder={t('Chat.askMeAnything')}
           className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] focus-within:outline-none sm:text-sm"
           autoFocus
           spellCheck={false}
@@ -86,10 +96,10 @@ export function PromptForm({
                 disabled={input === '' || isPending}
               >
                 <ArrowUpIcon className="h-6 w-6" />
-                <span className="sr-only">Send message</span>
+                <span className="sr-only">{t('Chat.sendMessage')}</span>
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Send message</TooltipContent>
+            <TooltipContent>{t('Chat.sendMessage')}</TooltipContent>
           </Tooltip>
         </div>
       </div>

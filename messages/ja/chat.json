@@ -5,6 +5,22 @@
     "startChat": "状況に応じて最適なAIチャットを開始します。",
     "addChat": "AIチャットを追加",
     "sendMessageErrorTitle": "メッセージの送信に失敗しました",
-    "sendMessageErrorDescription": "メッセージの送信中にエラーが発生しました。もう一度お試しください。"
+    "sendMessageErrorDescription": "メッセージの送信中にエラーが発生しました。もう一度お試しください。",
+    "sendMessage": "メッセージを送信",
+    "askMeAnything": "何でも聞いてください",
+    "examples": {
+      "heading1": "サーバーレスの",
+      "subheading1": "長所はなんでしょうか？",
+      "message1": "サーバーレスの長所はなんでしょうか？",
+      "heading2": "エッジコンピューティングは",
+      "subheading2": "なぜ優れていますか？",
+      "message2": "エッジコンピューティングはなぜ優れていますか？",
+      "heading3": "TypeScriptについて",
+      "subheading3": "簡単に教えてくれませんか？",
+      "message3": "TypeScriptについて簡単に教えてくれませんか？",
+      "heading4": "API設計について",
+      "subheading4": "アドバイスをください。",
+      "message4": "API設計についてアドバイスをください。"
+    }
   }
 }

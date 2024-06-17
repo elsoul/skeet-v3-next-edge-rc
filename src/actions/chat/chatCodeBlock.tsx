@@ -15,6 +15,7 @@ import {
   ClipboardCopyIcon,
   DownloadIcon,
 } from '@radix-ui/react-icons'
+import { useTranslations } from 'next-intl'
 
 interface Props {
   language: string
@@ -63,6 +64,7 @@ export const generateRandomString = (length: number, lowercase = false) => {
 }
 
 const CodeBlock: FC<Props> = memo(({ language, value }) => {
+  const t = useTranslations()
   const { isCopied, copyToClipboard } = useCopyToClipboard({ timeout: 2000 })
 
   const downloadAsFile = () => {
@@ -109,7 +111,7 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
             size="icon"
           >
             <DownloadIcon className="h-4 w-4" />
-            <span className="sr-only">Download</span>
+            <span className="sr-only">{t('Common.download')}</span>
           </Button>
           <Button
             variant="ghost"
@@ -122,7 +124,7 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
             ) : (
               <ClipboardCopyIcon className="h-4 w-4" />
             )}
-            <span className="sr-only">Copy code</span>
+            <span className="sr-only">{t('Common.copyCode')}</span>
           </Button>
         </div>
       </div>
@@ -130,11 +132,11 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
       <SyntaxHighlighter
         language={language}
         style={coldarkDark}
-        showLineNumbers
         PreTag="div"
         customStyle={{
           width: '100%',
           maxWidth: 'calc(100vw - 80px)',
+          borderRadius: '0 0 1rem 1rem',
         }}
       >
         {value}

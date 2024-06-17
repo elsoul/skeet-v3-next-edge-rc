@@ -28,10 +28,10 @@ export async function submitUserMessage(content: string) {
   let textNode: undefined | React.ReactNode
 
   const result = await streamUI({
-    model: openai('gpt-3.5-turbo'),
+    model: openai('gpt-4o'),
     initial: <SpinnerMessage />,
     system: `\
-    An assistant who knows everything and teaches politely. If I don't know, I will research before answering.`,
+    An assistant who knows everything and teaches politely.`,
     messages: [
       ...aiState.get().messages.map((message: any) => ({
         role: message.role,
