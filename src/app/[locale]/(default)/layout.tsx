@@ -18,7 +18,7 @@ export default async function DefaultLayout({ children }: Props) {
 
   return (
     <>
-      <div className="flex min-h-screen flex-col justify-between">
+      <div className="flex min-h-screen w-full flex-col justify-between">
         <header className="flex flex-row items-start justify-center p-6">
           <div className="flex flex-grow" />
           <div className="flex flex-row items-start justify-center gap-3">
