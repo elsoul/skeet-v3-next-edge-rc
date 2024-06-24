@@ -8,6 +8,7 @@
     "sendMessageErrorDescription": "An error occurred while sending the message. Please try again.",
     "sendMessage": "Send message",
     "askMeAnything": "Ask me anything.",
+    "aiMayMistake": "ChatGPT can make mistakes. Check important info.",
     "examples": {
       "heading1": "What are the advantages",
       "subheading1": "of serverless?",

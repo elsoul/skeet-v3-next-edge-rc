@@ -7,6 +7,7 @@ import { ComponentProps, useState } from 'react'
 import { useUIState } from 'ai/rsc'
 import { Message } from '@/prisma/neon/PrismaNeonClient'
 import { MESSAGE_LIMIT } from '@/lib/enums'
+import ChatTitle from './ChatTitle'
 
 export interface ChatProps extends ComponentProps<'div'> {
   initialMessages?: Message[]
@@ -25,6 +26,7 @@ export function Chat({ id, className }: ChatProps) {
           className,
         )}
       >
+        <ChatTitle />
         <ChatList messages={messages} />
       </div>
       {messages.length > MESSAGE_LIMIT ? null : (

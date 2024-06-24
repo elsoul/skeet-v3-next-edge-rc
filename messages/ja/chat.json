@@ -8,6 +8,7 @@
     "sendMessageErrorDescription": "メッセージの送信中にエラーが発生しました。もう一度お試しください。",
     "sendMessage": "メッセージを送信",
     "askMeAnything": "何でも聞いてください",
+    "aiMayMistake": "ChatGPTは間違えることがあります。重要な情報は確認してください。",
     "examples": {
       "heading1": "サーバーレスの",
       "subheading1": "長所はなんでしょうか？",
