@@ -1,6 +1,6 @@
 import { PromptForm } from './PromptForm'
 
-import { useAIState, useActions, useUIState } from 'ai/rsc'
+import { useActions, useUIState } from 'ai/rsc'
 import { AI } from '@/actions/chat/chatProvider'
 import { UserMessage } from '@/actions/chat/chatMessages'
 import { useTranslations } from 'next-intl'
@@ -14,7 +14,6 @@ export interface ChatPanelProps {
 
 export function ChatPanel({ id, title, input, setInput }: ChatPanelProps) {
   const t = useTranslations()
-  const [aiState] = useAIState()
   const [messages, setMessages] = useUIState<typeof AI>()
   const { submitUserMessage } = useActions()
 

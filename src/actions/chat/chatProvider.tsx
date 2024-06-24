@@ -1,6 +1,6 @@
 import { createAI, getAIState } from 'ai/rsc'
 
-import { saveChat } from './chatSave'
+import { saveChat } from './saveChat'
 import { submitUserMessage } from './chatSubmit'
 
 import { BotMessage, UserMessage } from './chatMessages'
@@ -19,12 +19,14 @@ export type UIState = {
   display: React.ReactNode
 }[]
 
+export const initialAIState = { chatId: '', messages: [] }
+
 export const AI = createAI<AIState, UIState>({
   actions: {
     submitUserMessage,
   },
   initialUIState: [],
-  initialAIState: { chatId: '', messages: [] },
+  initialAIState,
   onGetUIState: async () => {
     'use server'
 
@@ -41,7 +43,7 @@ export const AI = createAI<AIState, UIState>({
       return
     }
   },
-  onSetAIState: async ({ state }) => {
+  onSetAIState: async ({ state, done }) => {
     'use server'
 
     const user = await getLoggedInUser()
@@ -63,8 +65,9 @@ export const AI = createAI<AIState, UIState>({
         createdAt,
         updatedAt,
       }
-
-      await saveChat({ chat, messages })
+      if (done) {
+        await saveChat({ userId, chat, messages })
+      }
     } else {
       return
     }
