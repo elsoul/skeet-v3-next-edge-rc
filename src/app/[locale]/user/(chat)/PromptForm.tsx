@@ -19,6 +19,7 @@ import { ArrowUpIcon } from '@radix-ui/react-icons'
 import { useToast } from '@/components/ui/use-toast'
 import { useTranslations } from 'next-intl'
 import { UserMessage } from '@/actions/chat/chatMessages'
+import { MESSAGE_LIMIT } from '@/lib/enums'
 
 export function PromptForm({
   input,
@@ -31,7 +32,7 @@ export function PromptForm({
   const { formRef, onKeyDown } = useEnterSubmit()
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const [isPending, startTransition] = useTransition()
-  const [_, setMessages] = useUIState<typeof AI>()
+  const [messages, setMessages] = useUIState<typeof AI>()
   const { toast } = useToast()
   const { submitUserMessage } = useActions()
 
@@ -69,6 +70,9 @@ export function PromptForm({
     })
   }
 
+  const isDisabled =
+    messages.length > MESSAGE_LIMIT || input === '' || isPending
+
   return (
     <form ref={formRef} action={submitAction}>
       <div className="relative flex max-h-60 w-full grow flex-col overflow-hidden bg-background pr-8 sm:rounded-md sm:border sm:pr-12">
@@ -90,11 +94,7 @@ export function PromptForm({
         <div className="absolute bottom-3 right-0 sm:right-4">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button
-                type="submit"
-                size="icon"
-                disabled={input === '' || isPending}
-              >
+              <Button type="submit" size="icon" disabled={isDisabled}>
                 <ArrowUpIcon className="h-6 w-6" />
                 <span className="sr-only">{t('Chat.sendMessage')}</span>
               </Button>

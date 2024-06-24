@@ -15,7 +15,11 @@ export const getUserChats = async () => {
     include: {
       Chat: {
         include: {
-          messages: true,
+          messages: {
+            orderBy: {
+              createdAt: 'asc',
+            },
+          },
         },
       },
     },
