@@ -35,7 +35,7 @@ export function BotMessage({
         <IconOpenAI />
       </div>
       <div className="ml-4 flex-1 space-y-2 px-1">
-        <MemoizedReactMarkdown
+        <MemorizedReactMarkdown
           className="prose dark:prose-invert w-full break-words"
           remarkPlugins={[remarkGfm, remarkMath]}
           components={{
@@ -81,7 +81,7 @@ export function BotMessage({
           }}
         >
           {text}
-        </MemoizedReactMarkdown>
+        </MemorizedReactMarkdown>
       </div>
     </div>
   )
@@ -153,7 +153,7 @@ export function IconOpenAI({
   )
 }
 
-export const MemoizedReactMarkdown: FC<Options> = memo(
+export const MemorizedReactMarkdown: FC<Options> = memo(
   ReactMarkdown,
   (prevProps, nextProps) =>
     prevProps.children === nextProps.children &&
