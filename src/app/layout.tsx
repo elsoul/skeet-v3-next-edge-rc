@@ -1,7 +1,8 @@
 export const runtime = 'edge'
 
 import { getTranslations } from 'next-intl/server'
-import { appInfo, locales } from './config'
+import { locales } from './config'
+import appInfo from '@appInfo'
 
 type Props = {
   children: React.ReactNode

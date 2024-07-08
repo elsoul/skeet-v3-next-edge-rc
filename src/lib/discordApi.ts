@@ -1,4 +1,4 @@
-import { appInfo } from '@/app/config'
+import appInfo from '@appInfo'
 
 export const getAccessToken = async (
   code: string,

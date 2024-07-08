@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils'
 
 import { User } from '@/prisma/neon/PrismaNeonClient'
 import Image from 'next/image'
-import { appInfo } from '@/app/config'
+import appInfo from '@appInfo'
 import DiscordUnlinkButton from './DiscordUnlinkButton'
 
 type Props = {

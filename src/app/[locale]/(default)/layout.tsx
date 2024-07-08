@@ -1,4 +1,4 @@
-import { appInfo } from '@/app/config'
+import appInfo from '@appInfo'
 import { auth } from '@/auth'
 import { LanguageToggle } from '@/components/config/LanguageToggle'
 import { ModeToggle } from '@/components/config/ModeToggle'

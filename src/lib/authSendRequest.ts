@@ -1,4 +1,5 @@
-import { appInfo, logoUrl } from '@/app/config'
+import { logoUrl } from '@/app/config'
+import appInfo from '@appInfo'
 
 export async function sendVerificationRequest(params: {
   identifier: string
