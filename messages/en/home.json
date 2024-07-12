@@ -1,5 +1,6 @@
 {
-  "Home": {
-    "title": "Home"
+  "home": {
+    "title": "Home",
+    "verifyEmail": "Verify your email"
   }
 }

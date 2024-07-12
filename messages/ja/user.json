@@ -1,5 +1,5 @@
 {
-  "User": {
+  "user": {
     "upgrade": "アップグレード",
     "upgradeCardTitle": "Pro へアップグレード",
     "upgradeCardDescription": "Skeet のためにカスタマイズされたサーバーレスインフラですべての機能をアンロックします。"

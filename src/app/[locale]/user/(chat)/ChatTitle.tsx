@@ -11,7 +11,7 @@ export default function ChatTitle() {
           GPT-4o
         </p>
         <p className="text-xs text-zinc-500 dark:text-zinc-300">
-          {t('Chat.aiMayMistake')}
+          {t('chat.aiMayMistake')}
         </p>
       </div>
     </>

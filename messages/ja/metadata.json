@@ -1,10 +1,7 @@
 {
-  "Metadata": {
+  "metadata": {
     "appTitle": "Skeet v3",
     "defaultTitle": "ホーム",
-    "defaultDescription": "We're going to the Edge.",
-    "homeTitle": "ホーム",
-    "userChatTitle": "AI チャット",
-    "userSettingsTitle": "設定"
+    "defaultDescription": "We're going to the Edge."
   }
 }

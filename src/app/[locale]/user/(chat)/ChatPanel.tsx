@@ -18,9 +18,9 @@ export function ChatPanel({ id, title, input, setInput }: ChatPanelProps) {
   const { submitUserMessage } = useActions()
 
   const exampleMessages = Array.from({ length: 4 }, (_, index) => ({
-    heading: t(`Chat.examples.heading${index + 1}`),
-    subheading: t(`Chat.examples.subheading${index + 1}`),
-    message: t(`Chat.examples.message${index + 1}`),
+    heading: t(`chat.examples.heading${index + 1}`),
+    subheading: t(`chat.examples.subheading${index + 1}`),
+    message: t(`chat.examples.message${index + 1}`),
   }))
 
   return (

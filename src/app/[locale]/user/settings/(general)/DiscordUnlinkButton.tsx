@@ -19,8 +19,8 @@ export default function DiscordUnlinkButton() {
         router.refresh()
       } catch (e) {
         toast({
-          title: t('Settings.discordLink.errorTitle'),
-          description: t('Settings.discordLink.errorDescription'),
+          title: t('settings.discordLink.errorTitle'),
+          description: t('settings.discordLink.errorDescription'),
         })
       }
     })
@@ -33,7 +33,7 @@ export default function DiscordUnlinkButton() {
         variant="outline"
         disabled={isPending}
       >
-        {t('Settings.discordLink.unlinkButton')}
+        {t('settings.discordLink.unlinkButton')}
       </Button>
     </>
   )

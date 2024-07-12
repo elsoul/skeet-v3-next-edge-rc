@@ -32,14 +32,14 @@ export default function UserMenu() {
         await signOutAction()
         router.push(DEFAULT_PATHS.home)
         toast({
-          title: t('Auth.signOutTitle'),
-          description: t('Auth.signOutDescription'),
+          title: t('auth.signOutTitle'),
+          description: t('auth.signOutDescription'),
         })
       } catch (e) {
         if (e instanceof Error) {
           toast({
-            title: t('Auth.errorSignOutTitle'),
-            description: t('Auth.errorSignOutDescription'),
+            title: t('auth.errorSignOutTitle'),
+            description: t('auth.errorSignOutDescription'),
           })
         }
       }
@@ -62,10 +62,10 @@ export default function UserMenu() {
             onClick={() => router.push(USER_PATHS.settings)}
             disabled={isPending}
           >
-            {t('Settings.title')}
+            {t('settings.title')}
           </DropdownMenuItem>
           <DropdownMenuItem onClick={submitAction} disabled={isPending}>
-            {t('Auth.signOut')}
+            {t('auth.signOut')}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

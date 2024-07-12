@@ -30,8 +30,8 @@ export default function DiscordLinking() {
           setLinked(true)
         } catch (e) {
           toast({
-            title: t('Settings.discordLink.errorTitle'),
-            description: t('Settings.discordLink.errorDescription'),
+            title: t('settings.discordLink.errorTitle'),
+            description: t('settings.discordLink.errorDescription'),
           })
           router.push(USER_PATHS.settings)
         }
@@ -58,17 +58,17 @@ export default function DiscordLinking() {
           />
           <h1 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-3xl">
             {isLinked
-              ? t('Settings.discordLink.confirmedTitle')
-              : t('Settings.discordLink.confirmingTitle')}
+              ? t('settings.discordLink.confirmedTitle')
+              : t('settings.discordLink.confirmingTitle')}
           </h1>
           <p className="text-md max-w-xs text-zinc-500 dark:text-zinc-300">
             {isLinked
-              ? t('Settings.discordLink.confirmedDescription')
-              : t('Settings.discordLink.confirmingDescription')}
+              ? t('settings.discordLink.confirmedDescription')
+              : t('settings.discordLink.confirmingDescription')}
           </p>
           <Link href={USER_PATHS.settings}>
             <Button disabled={isPending}>
-              {t('Settings.discordLink.backToSettings')}
+              {t('settings.discordLink.backToSettings')}
             </Button>
           </Link>
         </div>

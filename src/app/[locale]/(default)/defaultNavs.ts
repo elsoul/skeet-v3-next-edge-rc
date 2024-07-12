@@ -6,6 +6,6 @@ export enum DEFAULT_PATHS {
 export const defaultNav = [
   {
     path: DEFAULT_PATHS.home,
-    label: 'Home.title',
+    label: 'home.title',
   },
 ]

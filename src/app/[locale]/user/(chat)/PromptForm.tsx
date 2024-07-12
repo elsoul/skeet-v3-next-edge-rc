@@ -62,8 +62,8 @@ export function PromptForm({
       } catch (e) {
         if (e instanceof Error) {
           toast({
-            title: t('Chat.sendMessageErrorTitle'),
-            description: t('Chat.sendMessageErrorDescription'),
+            title: t('chat.sendMessageErrorTitle'),
+            description: t('chat.sendMessageErrorDescription'),
           })
         }
       }
@@ -80,7 +80,7 @@ export function PromptForm({
           ref={inputRef}
           tabIndex={0}
           onKeyDown={onKeyDown}
-          placeholder={t('Chat.askMeAnything')}
+          placeholder={t('chat.askMeAnything')}
           className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] focus-within:outline-none sm:text-sm"
           autoFocus
           spellCheck={false}
@@ -96,10 +96,10 @@ export function PromptForm({
             <TooltipTrigger asChild>
               <Button type="submit" size="icon" disabled={isDisabled}>
                 <ArrowUpIcon className="h-6 w-6" />
-                <span className="sr-only">{t('Chat.sendMessage')}</span>
+                <span className="sr-only">{t('chat.sendMessage')}</span>
               </Button>
             </TooltipTrigger>
-            <TooltipContent>{t('Chat.sendMessage')}</TooltipContent>
+            <TooltipContent>{t('chat.sendMessage')}</TooltipContent>
           </Tooltip>
         </div>
       </div>

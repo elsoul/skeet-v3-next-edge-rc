@@ -1,5 +1,5 @@
 {
-  "Common": {
+  "common": {
     "toggleNavigationMenu": "Toggle navigation menu",
     "toggleTheme": "Toggle theme",
     "lightMode": "Light",

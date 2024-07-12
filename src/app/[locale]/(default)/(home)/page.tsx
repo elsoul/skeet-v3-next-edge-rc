@@ -1,21 +1,12 @@
 import LogoHorizontalLink from '@/components/common/LogoHorizontalLink'
 import SignInForm from './SignInForm'
 import { useTranslations } from 'next-intl'
-import { getTranslations } from 'next-intl/server'
+import { getDataForPageByPageJsonName, PageProps } from '@/lib/pages'
 
-export async function generateMetadata({ params: { locale } }: Props) {
-  const t = await getTranslations({ locale, namespace: 'Metadata' })
+const { generateMetadata } = getDataForPageByPageJsonName('home')
+export { generateMetadata }
 
-  return {
-    title: t('homeTitle'),
-  }
-}
-
-type Props = {
-  params: { locale: string }
-}
-
-export default function Home() {
+export default function HomePage({}: PageProps) {
   const t = useTranslations()
   return (
     <>

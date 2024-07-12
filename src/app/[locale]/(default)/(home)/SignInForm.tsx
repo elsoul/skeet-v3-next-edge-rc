@@ -32,8 +32,8 @@ export default function SignInForm() {
       } catch (e) {
         if (e instanceof Error) {
           toast({
-            title: t('Auth.errorSignInTitle'),
-            description: t('Auth.errorSignInDescription'),
+            title: t('auth.errorSignInTitle'),
+            description: t('auth.errorSignInDescription'),
           })
         }
       }
@@ -45,12 +45,12 @@ export default function SignInForm() {
       <form action={submitAction} className="w-full max-w-sm">
         <Card className="w-full">
           <CardHeader>
-            <CardTitle className="text-2xl">{t('Auth.signIn')}</CardTitle>
-            <CardDescription>{t('Auth.enterEmail')}</CardDescription>
+            <CardTitle className="text-2xl">{t('auth.signIn')}</CardTitle>
+            <CardDescription>{t('auth.enterEmail')}</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="email">{t('Auth.email')}</Label>
+              <Label htmlFor="email">{t('auth.email')}</Label>
               <Input
                 id="email"
                 type="email"
@@ -63,7 +63,7 @@ export default function SignInForm() {
           </CardContent>
           <CardFooter>
             <Button className="w-full" type="submit" disabled={isPending}>
-              {t('Auth.signIn')}
+              {t('auth.signIn')}
             </Button>
           </CardFooter>
         </Card>

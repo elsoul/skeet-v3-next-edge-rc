@@ -14,7 +14,7 @@ export default function UserSettingsLayout({ children }: Props) {
         <div className="mx-auto w-full max-w-6xl">
           <div className="grid w-full gap-2 pb-3">
             <h1 className="text-lg font-semibold md:text-2xl">
-              {t('Settings.title')}
+              {t('settings.title')}
             </h1>
           </div>
           <div className="grid w-full items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">

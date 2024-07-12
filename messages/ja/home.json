@@ -1,5 +1,6 @@
 {
-  "Home": {
-    "title": "ホーム"
+  "home": {
+    "title": "ホーム",
+    "verifyEmail": "メールアドレスの確認"
   }
 }

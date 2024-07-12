@@ -28,7 +28,7 @@ export default function UserModalNav() {
             onClick={() => setOpen(true)}
           >
             <HamburgerMenuIcon className="h-5 w-5" />
-            <span className="sr-only">{t('Common.toggleNavigationMenu')}</span>
+            <span className="sr-only">{t('common.toggleNavigationMenu')}</span>
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="flex flex-col">

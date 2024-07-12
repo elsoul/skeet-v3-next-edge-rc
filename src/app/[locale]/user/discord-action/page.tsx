@@ -1,6 +1,14 @@
 import DiscordLinking from './DiscordLinking'
 
-export default function DiscordAction() {
+import { getDataForPageByPageJsonName, PageProps } from '@/lib/pages'
+
+const { generateMetadata } = getDataForPageByPageJsonName(
+  'settings',
+  'discordLink.title',
+)
+export { generateMetadata }
+
+export default function DiscordActionPage({}: PageProps) {
   return (
     <>
       <DiscordLinking />

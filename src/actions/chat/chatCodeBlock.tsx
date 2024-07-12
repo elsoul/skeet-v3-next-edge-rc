@@ -111,7 +111,7 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
             size="icon"
           >
             <DownloadIcon className="h-4 w-4" />
-            <span className="sr-only">{t('Common.download')}</span>
+            <span className="sr-only">{t('common.download')}</span>
           </Button>
           <Button
             variant="ghost"
@@ -124,7 +124,7 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
             ) : (
               <ClipboardCopyIcon className="h-4 w-4" />
             )}
-            <span className="sr-only">{t('Common.copyCode')}</span>
+            <span className="sr-only">{t('common.copyCode')}</span>
           </Button>
         </div>
       </div>

@@ -1,23 +1,13 @@
-import { getTranslations } from 'next-intl/server'
-
 import DiscordLink from './DiscordLink'
 import { getLoggedInUser } from '@/queries/user/get'
 import { redirect } from '@/navigation'
 import { DEFAULT_PATHS } from '@/app/[locale]/(default)/defaultNavs'
+import { getDataForPageByPageJsonName, PageProps } from '@/lib/pages'
 
-export async function generateMetadata({ params: { locale } }: Props) {
-  const t = await getTranslations({ locale, namespace: 'Metadata' })
+const { generateMetadata } = getDataForPageByPageJsonName('settings')
+export { generateMetadata }
 
-  return {
-    title: t('userSettingsTitle'),
-  }
-}
-
-type Props = {
-  params: { locale: string }
-}
-
-export default async function UserSettings() {
+export default async function UserSettingsPage({}: PageProps) {
   const user = await getLoggedInUser()
   if (!user) {
     redirect(DEFAULT_PATHS.home)

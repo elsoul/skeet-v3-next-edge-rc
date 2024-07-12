@@ -9,12 +9,12 @@ export enum USER_PATHS {
 export const userNav = [
   {
     path: USER_PATHS.chat,
-    label: 'Chat.title',
+    label: 'chat.title',
     icon: ChatBubbleIcon,
   },
   {
     path: USER_PATHS.settings,
-    label: 'Settings.title',
+    label: 'settings.title',
     icon: GearIcon,
   },
 ]

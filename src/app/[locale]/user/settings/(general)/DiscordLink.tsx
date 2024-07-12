@@ -33,9 +33,9 @@ export default function DiscordLink({ user }: Props) {
     <>
       <Card>
         <CardHeader>
-          <CardTitle>{t('Settings.discordLink.title')}</CardTitle>
+          <CardTitle>{t('settings.discordLink.title')}</CardTitle>
           <CardDescription>
-            {t('Settings.discordLink.description')}
+            {t('settings.discordLink.description')}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -57,8 +57,8 @@ export default function DiscordLink({ user }: Props) {
               />
             )}
             {isLinkedDiscord
-              ? `${t('Settings.discordLink.linking')}: ${user.discordUsername}`
-              : t('Settings.discordLink.notYet')}
+              ? `${t('settings.discordLink.linking')}: ${user.discordUsername}`
+              : t('settings.discordLink.notYet')}
           </p>
         </CardContent>
         <CardFooter className="border-t px-6 py-4">
@@ -68,7 +68,7 @@ export default function DiscordLink({ user }: Props) {
             <a href={discordLoginLink}>
               <Button>
                 <DiscordLogoIcon className="mr-2 h-6 w-6" />
-                {t('Settings.discordLink.linkButton')}
+                {t('settings.discordLink.linkButton')}
               </Button>
             </a>
           )}

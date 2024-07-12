@@ -1,5 +1,5 @@
 {
-  "User": {
+  "user": {
     "upgrade": "Upgrade",
     "upgradeCardTitle": "Upgrade to Pro",
     "upgradeCardDescription": "Unlock all features with a serverless infrastructure customized for Skeet."

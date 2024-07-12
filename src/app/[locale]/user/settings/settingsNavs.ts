@@ -5,6 +5,6 @@ export enum USER_SETTINGS_PATHS {
 export const userSettingsNav = [
   {
     path: USER_SETTINGS_PATHS.general,
-    label: 'Settings.nav.general',
+    label: 'settings.nav.general',
   },
 ]

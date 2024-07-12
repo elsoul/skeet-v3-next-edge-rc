@@ -1,22 +1,13 @@
 import { AI } from '@/actions/chat/chatProvider'
-import { getTranslations } from 'next-intl/server'
 import { Chat } from './Chat'
 import { getUserChats } from '@/queries/chat/get'
 import { initialAIState } from '@/actions/chat/chatProvider'
+import { getDataForPageByPageJsonName, PageProps } from '@/lib/pages'
 
-export async function generateMetadata({ params: { locale } }: Props) {
-  const t = await getTranslations({ locale, namespace: 'Metadata' })
+const { generateMetadata } = getDataForPageByPageJsonName('chat')
+export { generateMetadata }
 
-  return {
-    title: t('userChatTitle'),
-  }
-}
-
-type Props = {
-  params: { locale: string }
-}
-
-export default async function UserChat() {
+export default async function UserChatPage({}: PageProps) {
   const chats = await getUserChats()
 
   const initAIState =

@@ -15,8 +15,8 @@ export default function UpgradeCard() {
     <>
       <Card>
         <CardHeader className="p-4">
-          <CardTitle>{t('User.upgradeCardTitle')}</CardTitle>
-          <CardDescription>{t('User.upgradeCardDescription')}</CardDescription>
+          <CardTitle>{t('user.upgradeCardTitle')}</CardTitle>
+          <CardDescription>{t('user.upgradeCardDescription')}</CardDescription>
         </CardHeader>
         <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
           <Link
@@ -25,7 +25,7 @@ export default function UpgradeCard() {
             rel="noopener noreferrer"
           >
             <Button size="sm" className="w-full">
-              {t('User.upgrade')}
+              {t('user.upgrade')}
             </Button>
           </Link>
         </CardContent>
