@@ -22,7 +22,7 @@ export function Chat({ id, className }: ChatProps) {
     <div className="flex h-[calc(100vh-3.5rem)] w-full flex-col lg:h-[calc(100vh-60px)]">
       <div
         className={cn(
-          'scrollbar-thin scrollbar-thumb-zinc-500 scrollbar-track-white dark:scrollbar-thumb-zinc-300 dark:scrollbar-track-zinc-950 mx-auto max-h-[calc(100vh-10rem)] w-full overflow-auto px-3 pt-4 md:pt-10',
+          'scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thin scrollbar-thumb-zinc-500 scrollbar-track-white dark:scrollbar-thumb-zinc-300 dark:scrollbar-track-zinc-950 mx-auto max-h-[calc(100vh-10rem)] w-full overflow-auto px-3 pt-4 md:pt-10',
           className,
         )}
       >
