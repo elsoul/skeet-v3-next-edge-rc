@@ -30,7 +30,7 @@ export default async function UserLayout({ children }: Props) {
             <ModeToggle />
             <UserMenu />
           </header>
-          <main className="h-[calc(100vh-3.5rem)] overflow-y-auto lg:h-[calc(100vh-60px)]">
+          <main className="h-[calc(100vh-3.5rem)] lg:h-[calc(100vh-60px)]">
             {children}
           </main>
         </div>
