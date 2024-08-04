@@ -100,8 +100,8 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
   }
 
   return (
-    <div className="mx-auto mb-6 mt-2 w-full rounded-lg bg-zinc-950 md:max-w-md lg:max-w-xl">
-      <div className="flex items-center justify-between rounded-t-lg bg-zinc-800 px-6 py-1 pr-4 text-zinc-100">
+    <div className="mx-auto mb-6 mt-2 w-full rounded-2xl bg-zinc-800 md:max-w-md lg:max-w-xl">
+      <div className="flex items-center justify-between rounded-t-2xl bg-zinc-800 px-6 pr-4 pt-1 text-zinc-100">
         <span className="text-xs lowercase">{language}</span>
         <div className="flex items-center space-x-1">
           <Button
