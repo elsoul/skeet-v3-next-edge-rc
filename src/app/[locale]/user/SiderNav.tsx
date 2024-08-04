@@ -23,7 +23,7 @@ export default function UserSiderNav() {
               {userNav.map((navItem) => (
                 <Link
                   href={navItem.path}
-                  key={`SiderNav ${navItem.label}`}
+                  key={navItem.label}
                   className={cn(
                     pathname === navItem.path
                       ? 'bg-muted text-primary transition-all hover:text-primary dark:bg-muted/40'

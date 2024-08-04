@@ -16,7 +16,7 @@ export default function UserSettingsNav() {
         {userSettingsNav.map((navItem) => (
           <Link
             href={navItem.path}
-            key={`SiderNav ${navItem.label}`}
+            key={navItem.label}
             className={cn(
               pathname === navItem.path ? 'font-semibold text-primary' : '',
               '',

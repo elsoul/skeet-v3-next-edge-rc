@@ -39,7 +39,7 @@ export default function UserModalNav() {
             {userNav.map((navItem) => (
               <Link
                 href={navItem.path}
-                key={`ModalNav ${navItem.label}`}
+                key={navItem.label}
                 className={cn(
                   pathname === navItem.path
                     ? 'bg-muted text-foreground hover:text-foreground dark:bg-muted/40'
