@@ -5,7 +5,7 @@
 
 import { FC, memo } from 'react'
 import { Prism, SyntaxHighlighterProps } from 'react-syntax-highlighter'
-import { coldarkDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 import { useCopyToClipboard } from '@/hooks/utils/useCopyToClipboard'
 
@@ -131,7 +131,7 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
 
       <SyntaxHighlighter
         language={language}
-        style={coldarkDark}
+        style={vscDarkPlus}
         PreTag="div"
         customStyle={{
           width: '100%',
