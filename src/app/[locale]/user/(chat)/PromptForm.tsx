@@ -94,9 +94,13 @@ export function PromptForm({
         <div className="absolute bottom-3 right-0 sm:right-4">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button type="submit" size="icon" disabled={isDisabled}>
+              <Button
+                type="submit"
+                size="icon"
+                disabled={isDisabled}
+                aria-label={t('chat.sendMessage')}
+              >
                 <ArrowUpIcon className="h-6 w-6" />
-                <span className="sr-only">{t('chat.sendMessage')}</span>
               </Button>
             </TooltipTrigger>
             <TooltipContent>{t('chat.sendMessage')}</TooltipContent>

@@ -100,31 +100,31 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
   }
 
   return (
-    <div className="mx-auto mb-6 mt-2 w-full rounded-2xl bg-zinc-800 md:max-w-md lg:max-w-xl">
-      <div className="flex items-center justify-between rounded-t-2xl bg-zinc-800 px-6 pr-4 pt-1 text-zinc-100">
+    <div className="mx-auto mb-6 mt-2 flex w-full flex-col rounded-2xl bg-zinc-800 md:max-w-md lg:max-w-xl">
+      <div className="flex flex-row items-center justify-between rounded-t-2xl bg-zinc-800 px-6 pr-4 pt-1 text-zinc-100">
         <span className="text-xs lowercase">{language}</span>
-        <div className="flex items-center space-x-1">
+        <div className="flex flex-row items-center">
           <Button
             variant="ghost"
             className="hover:bg-zinc-600 hover:text-white focus-visible:ring-1 focus-visible:ring-slate-700 focus-visible:ring-offset-0"
             onClick={downloadAsFile}
             size="icon"
+            aria-label={t('common.download')}
           >
             <DownloadIcon className="h-4 w-4" />
-            <span className="sr-only">{t('common.download')}</span>
           </Button>
           <Button
             variant="ghost"
             size="icon"
             className="text-xs hover:bg-zinc-600 hover:text-white focus-visible:ring-1 focus-visible:ring-slate-700 focus-visible:ring-offset-0"
             onClick={onCopy}
+            aria-label={t('common.download')}
           >
             {isCopied ? (
               <CheckIcon className="h-4 w-4" />
             ) : (
               <ClipboardCopyIcon className="h-4 w-4" />
             )}
-            <span className="sr-only">{t('common.copyCode')}</span>
           </Button>
         </div>
       </div>
@@ -137,6 +137,7 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
           width: '100%',
           maxWidth: 'calc(100vw - 80px)',
           borderRadius: '0 0 1rem 1rem',
+          height: 'auto',
         }}
       >
         {value}

@@ -12,7 +12,7 @@ import ReactMarkdown, { Options } from 'react-markdown'
 
 export function UserMessage({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex w-full flex-row items-end justify-end">
+    <div className="flex h-auto w-full flex-row items-end justify-end">
       <div className="space-y-2 rounded-3xl bg-zinc-100 px-5 py-3 dark:bg-zinc-700">
         {children}
       </div>
@@ -30,24 +30,15 @@ export function BotMessage({
   const text = useStreamableText(content)
 
   return (
-    <div className={cn('flex w-full', className)}>
+    <div className={cn('flex h-auto w-full flex-row', className)}>
       <div className="flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-primary text-primary-foreground shadow-sm">
         <IconOpenAI />
       </div>
       <div className="ml-4 flex-1 space-y-2 px-1">
         <MemorizedReactMarkdown
-          className="prose dark:prose-invert w-full break-words"
+          className="prose w-full break-words dark:prose-invert"
           remarkPlugins={[remarkGfm, remarkMath]}
           components={{
-            p({ children }) {
-              return <p className="mb-2 last:mb-0">{children}</p>
-            },
-            ul({ children }) {
-              return <ul className="py-1">{children}</ul>
-            },
-            li({ children }) {
-              return <li className="py-1">{children}</li>
-            },
             code({ node, inline, className, children, ...props }) {
               if (children.length) {
                 if (children[0] == '▍') {
@@ -55,12 +46,9 @@ export function BotMessage({
                     <span className="mt-1 animate-pulse cursor-default">▍</span>
                   )
                 }
-
                 children[0] = (children[0] as string).replace('`▍`', '▍')
               }
-
               const match = /language-(\w+)/.exec(className || '')
-
               if (inline) {
                 return (
                   <code className={className} {...props}>
@@ -68,7 +56,6 @@ export function BotMessage({
                   </code>
                 )
               }
-
               return (
                 <CodeBlock
                   key={Math.random()}

@@ -70,6 +70,7 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "0.5.14",
     "@cloudflare/next-on-pages": "1.11.3",
     "@cloudflare/workers-types": "4.20240529.0",
     "@types/crypto-js": "4.2.2",
