@@ -35,6 +35,10 @@
   "dependencies": {
     "@ai-sdk/openai": "0.0.24",
     "@auth/prisma-adapter": "2.1.0",
+    "@fortawesome/fontawesome-svg-core": "6.5.2",
+    "@fortawesome/free-brands-svg-icons": "6.5.2",
+    "@fortawesome/free-solid-svg-icons": "6.5.2",
+    "@fortawesome/react-fontawesome": "0.2.2",
     "@hookform/resolvers": "3.4.2",
     "@neondatabase/serverless": "0.9.3",
     "@prisma/adapter-d1": "5.14.0",

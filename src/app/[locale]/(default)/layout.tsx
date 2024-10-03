@@ -4,6 +4,11 @@ import { LanguageToggle } from '@/components/config/LanguageToggle'
 import { ModeToggle } from '@/components/config/ModeToggle'
 import { redirect } from '@/navigation'
 import { USER_PATHS } from '../user/userNavs'
+import {
+  DiscordIconLink,
+  GithubIconLink,
+  TwitterIconLink,
+} from '@/components/common/icons'
 
 type Props = {
   children: React.ReactNode
@@ -32,6 +37,11 @@ export default async function DefaultLayout({ children }: Props) {
             © {new Date().getFullYear()} {appInfo.copyright}
           </p>
           <div className="flex flex-grow" />
+          <div className="flex flex-row items-center gap-4">
+            <GithubIconLink />
+            <TwitterIconLink />
+            <DiscordIconLink />
+          </div>
         </footer>
       </div>
     </>
