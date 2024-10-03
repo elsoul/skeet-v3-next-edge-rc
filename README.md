@@ -132,7 +132,7 @@ pnpm db:neon:gen
 ### Add Components
 
 <a href="https://ui.shadcn.com/">
-  <img src="https://pub-f5c1b877dd3a4b63aacd87ee9a480be9.r2.dev/shadcnUI.jpg" alt="shadcn/ui" />
+  <img src="https://storage.skeet.dev/shadcnUI.jpg" alt="shadcn/ui" />
 </a>
 
 You can add the high-quality UI components from [shadcn/ui](https://ui.shadcn.com/)
@@ -145,7 +145,7 @@ pnpm add:ui button
 You can also use [v0](https://v0.dev/) which is a UI generator with shadcn/ui from simple text prompts and images.
 
 <a href="https://v0.dev/">
-  <img src="https://pub-f5c1b877dd3a4b63aacd87ee9a480be9.r2.dev/v0.jpg" alt="v0" />
+  <img src="https://storage.skeet.dev/v0.jpg" alt="v0" />
 </a>
 
 ## References
