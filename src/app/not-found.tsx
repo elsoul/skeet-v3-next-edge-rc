@@ -1,5 +1,3 @@
-export const runtime = 'edge'
-
 export default function NotFound() {
   return (
     <>
@@ -20,6 +18,10 @@ export default function NotFound() {
                 <h2 style={styles.h2}>This page could not be found.</h2>
               </div>
             </div>
+
+            <a href="/" style={styles.button}>
+              Go back to Home
+            </a>
           </div>
         </body>
       </html>
@@ -58,5 +60,19 @@ const styles = {
     fontWeight: 400,
     lineHeight: '49px',
     margin: 0,
+  },
+
+  button: {
+    display: 'inline-block',
+    marginTop: '20px',
+    padding: '10px 20px',
+    backgroundColor: '#18181b',
+    color: '#fff',
+    fontSize: '16px',
+    fontWeight: '500',
+    borderRadius: '6px',
+    textDecoration: 'none',
+    transition: 'background-color 0.2s ease',
+    cursor: 'pointer',
   },
 } as const
