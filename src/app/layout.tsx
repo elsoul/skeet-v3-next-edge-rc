@@ -21,24 +21,24 @@ export async function generateMetadata({ params: { locale } }: Props) {
     metadataBase: new URL(
       process.env.NODE_ENV === 'production'
         ? `https://${appInfo.domain}`
-        : 'http://localhost:4200',
+        : 'http://localhost:4242',
     ),
+    generator: appInfo.copyright,
+    applicationName: t('appTitle'),
+    keywords: t('keywords'),
     title: {
       template: `%s | ${t('appTitle')}`,
-      default: t('defaultTitle'),
+      default: `${t('defaultTitle')} | ${t('appTitle')}`,
     },
     description: t('defaultDescription'),
     openGraph: {
-      title: {
-        template: `%s | ${t('appTitle')}`,
-        default: t('defaultTitle'),
-      },
-      description: t('defaultDescription'),
       locale,
       type: 'website',
     },
     twitter: {
+      card: 'summary_large_image',
       creator: appInfo.twitterId,
+      site: appInfo.twitterId,
     },
     robots: {
       index: false,
