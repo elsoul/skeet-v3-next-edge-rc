@@ -91,17 +91,7 @@ Also set the secret values on Cloudflare Pages.
 
 ```bash
 pnpm i
-
-// D1 Auth db migration
-pnpm db:auth:create create_user_table
-pnpm db:auth:init --output prisma/auth/migrations/0001_create_user_table.sql
-pnpm db:auth:apply --local
-pnpm db:auth:gen
-
-// Neon db migration
-pnpm db:neon:migration:dev
-pnpm db:neon:gen
-
+pnpm dev:init
 pnpm dev
 ```
 
@@ -140,7 +130,7 @@ You can add the high-quality UI components from [shadcn/ui](https://ui.shadcn.co
 
 ```bash
 // shortcut method for shadcn/ui
-pnpm add:ui button
+pnpm ui:add button
 ```
 
 You can also use [v0](https://v0.dev/) which is a UI generator with shadcn/ui from simple text prompts and images.
@@ -159,7 +149,7 @@ You can also use [v0](https://v0.dev/) which is a UI generator with shadcn/ui fr
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/elsoul/skeet-v3-next-edge-rc This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/elsoul/skeet This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -167,4 +157,4 @@ The package is available as open source under the terms of the [Apache-2.0 Licen
 
 ## Code of Conduct
 
-Everyone interacting in the Skeet project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/elsoul/skeet-v3-next-edge-rc/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Skeet project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/elsoul/skeet/blob/master/CODE_OF_CONDUCT.md).

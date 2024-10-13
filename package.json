@@ -10,6 +10,7 @@
   },
   "packageManager": "pnpm@9.1.4",
   "scripts": {
+    "dev:init": "pnpm db:neon:migrate:dev && pnpm db:auth:migrate:dev",
     "dev": "next dev -p 4200",
     "build": "next build",
     "start": "next start",
@@ -24,6 +25,7 @@
     "db:neon:reset": "prisma migrate reset --force --schema ./prisma/neon/schema.prisma",
     "db:neon:gen": "prisma generate --schema ./prisma/neon/schema.prisma",
     "db:neon:studio": "prisma studio --schema ./prisma/neon/schema.prisma",
+    "db:auth:migrate:dev": "pnpm db:auth:apply --local",
     "db:auth:create": "wrangler d1 migrations create skeet-auth-database",
     "db:auth:init": "prisma migrate diff --from-empty --to-schema-datamodel ./prisma/auth/schema.prisma --script",
     "db:auth:evolve": "prisma migrate diff --from-local-d1 --to-schema-datamodel ./prisma/auth/schema.prisma --script",
@@ -100,9 +102,5 @@
     "typescript": "5.4.5",
     "vercel": "34.2.4",
     "wrangler": "3.58.0"
-  },
-  "overrides": {
-    "@types/react": "npm:types-react@rc",
-    "@types/react-dom": "npm:types-react-dom@rc"
   }
 }

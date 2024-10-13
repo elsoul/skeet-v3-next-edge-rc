@@ -25,7 +25,6 @@ export async function generateMetadata({ params: { locale } }: Props) {
     ),
     generator: appInfo.copyright,
     applicationName: t('appTitle'),
-    keywords: t('keywords'),
     title: {
       template: `%s | ${t('appTitle')}`,
       default: `${t('defaultTitle')} | ${t('appTitle')}`,
