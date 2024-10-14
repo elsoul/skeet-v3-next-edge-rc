@@ -3,39 +3,37 @@
   "version": "0.1.0",
   "author": "ELSOUL LABO B.V.",
   "license": "Apache-2.0",
-  "engines": {
-    "pnpm": ">=9",
-    "npm": "please_use_pnpm_instead",
-    "node": ">=20"
-  },
-  "packageManager": "pnpm@9.1.4",
   "scripts": {
-    "dev:init": "pnpm db:neon:migrate:dev && yes | pnpm db:auth:migrate:dev",
-    "dev": "next dev -p 4200",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "pages:build": "pnpm next-on-pages",
-    "preview": "pnpm pages:build && wrangler pages dev .vercel/output/static --d1 SKEET_AUTH_DB=b27d329d-7116-4716-9e7d-dbacb9a92ec1",
-    "deploy": "pnpm pages:build && wrangler pages deploy",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
-    "npm:update": "pnpm update \"!eslint\" \"!react-markdown\" --latest",
-    "db:neon:migrate:dev": "prisma migrate dev --schema ./prisma/neon/schema.prisma",
-    "db:neon:migrate:prod": "pnpm dlx dotenv-cli -e .env.build -- prisma migrate dev --schema ./prisma/neon/schema.prisma",
-    "db:neon:reset": "prisma migrate reset --force --schema ./prisma/neon/schema.prisma",
-    "db:neon:gen": "prisma generate --schema ./prisma/neon/schema.prisma",
-    "db:neon:studio": "prisma studio --schema ./prisma/neon/schema.prisma",
-    "db:auth:migrate:dev": "pnpm db:auth:apply --local && prisma generate --schema=./prisma/auth/schema.prisma",
-    "db:auth:create": "wrangler d1 migrations create skeet-auth-database",
-    "db:auth:init": "prisma migrate diff --from-empty --to-schema-datamodel ./prisma/auth/schema.prisma --script",
-    "db:auth:evolve": "prisma migrate diff --from-local-d1 --to-schema-datamodel ./prisma/auth/schema.prisma --script",
-    "db:auth:apply": "wrangler d1 migrations apply skeet-auth-database",
-    "db:auth:gen": "prisma generate --schema=./prisma/auth/schema.prisma",
-    "db:auth:reset": "prisma migrate reset --force --schema ./prisma/auth/schema.prisma",
-    "ui:add": "pnpm dlx shadcn@latest add"
+    "rm:unnecessary": "rm -rf ./node_modules/.deno/react@18.3.1",
+    "build": "npx next build",
+    "start": "npx next start",
+    "dev:init": "npm run db:neon:migrate:dev && npm run db:auth:migrate:dev",
+    "predev": "npm run rm:unnecessary",
+    "dev": "npx next dev -p 4200",
+    "pages:build": "npx next-on-pages",
+    "postpages:build": "npm run rm:unnecessary",
+    "lint": "npx next lint",
+    "preview": "npm run pages:build && npx wrangler pages dev .vercel/output/static --d1 SKEET_AUTH_DB=b27d329d-7116-4716-9e7d-dbacb9a92ec1",
+    "predeploy": "rm -rf /node_modules",
+    "deploy": "npm run pages:build && npx wrangler pages deploy",
+    "postdeploy": "rm -rf /node_modules && deno i",
+    "cf-typegen": "npx wrangler types --env-interface CloudflareEnv env.d.ts",
+    "db:neon:migrate:dev": "npx prisma migrate dev --schema ./prisma/neon/schema.prisma",
+    "db:neon:migrate:prod": "npx dotenv-cli -e .env.build -- npx prisma migrate dev --schema ./prisma/neon/schema.prisma",
+    "db:neon:reset": "npx prisma migrate reset --force --schema ./prisma/neon/schema.prisma",
+    "db:neon:gen": "npx prisma generate --schema ./prisma/neon/schema.prisma",
+    "db:neon:studio": "npx prisma studio --schema ./prisma/neon/schema.prisma",
+    "db:auth:migrate:dev": "npm run db:auth:apply --local && npx prisma generate --schema=./prisma/auth/schema.prisma",
+    "db:auth:create": "npx wrangler d1 migrations create skeet-auth-database",
+    "db:auth:init": "npx prisma migrate diff --from-empty --to-schema-datamodel ./prisma/auth/schema.prisma --script",
+    "db:auth:evolve": "npx prisma migrate diff --from-local-d1 --to-schema-datamodel ./prisma/auth/schema.prisma --script",
+    "db:auth:apply": "npx wrangler d1 migrations apply skeet-auth-database",
+    "db:auth:gen": "npx prisma generate --schema=./prisma/auth/schema.prisma",
+    "db:auth:reset": "npx prisma migrate reset --force --schema ./prisma/auth/schema.prisma",
+    "auth:secret": "npx auth secret"
   },
   "dependencies": {
-    "@ai-sdk/openai": "0.0.24",
+    "@ai-sdk/openai": "0.0.66",
     "@auth/prisma-adapter": "2.7.0",
     "@fortawesome/fontawesome-svg-core": "6.5.2",
     "@fortawesome/free-brands-svg-icons": "6.5.2",
@@ -56,7 +54,7 @@
     "@radix-ui/react-slot": "1.0.2",
     "@radix-ui/react-toast": "1.1.5",
     "@radix-ui/react-tooltip": "1.0.7",
-    "ai": "3.1.30",
+    "ai": "3.4.9",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",
     "crypto-js": "4.2.0",
@@ -77,12 +75,12 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "0.5.14",
-    "@cloudflare/next-on-pages": "1.11.3",
-    "@cloudflare/workers-types": "4.20240529.0",
+    "@cloudflare/next-on-pages": "1.13.5",
+    "@cloudflare/workers-types": "4.20241004.0",
     "@types/crypto-js": "4.2.2",
     "@types/node": "20.13.0",
-    "@types/react": "npm:types-react@19.0.0-rc.0",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "@types/react-syntax-highlighter": "15.5.13",
     "@types/ws": "8.5.10",
     "autoprefixer": "10.4.19",
@@ -99,8 +97,91 @@
     "tailwind-scrollbar": "3.1.0",
     "tailwindcss": "3.4.3",
     "tailwindcss-animate": "1.0.7",
-    "typescript": "5.4.5",
-    "vercel": "34.2.4",
+    "typescript": "5.6.3",
+    "vercel": "37.8.0",
     "wrangler": "3.80.4"
+  },
+  "overrides": {
+    "@fortawesome/react-fontawesome": {
+      "react": "19.0.0-rc-f994737d14-20240522"
+    },
+    "@radix-ui/react-avatar": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522"
+    },
+    "@radix-ui/react-checkbox": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522"
+    },
+    "@radix-ui/react-dialog": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522"
+    },
+    "@radix-ui/react-dropdown-menu": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522"
+    },
+    "@radix-ui/react-icons": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522"
+    },
+    "@radix-ui/react-label": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522"
+    },
+    "@radix-ui/react-separator": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522"
+    },
+    "@radix-ui/react-slot": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522"
+    },
+    "@radix-ui/react-toast": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522"
+    },
+    "@radix-ui/react-tooltip": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522"
+    },
+    "ai": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522"
+    },
+    "jotai": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522",
+      "@types/react": "npm:types-react@19.0.0-rc.1"
+    },
+    "next-intl": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522",
+      "next": "15.0.0-canary.2"
+    },
+    "next-themes": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522",
+      "next": "15.0.0-canary.2"
+    },
+    "react-hook-form": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522"
+    },
+    "react-markdown": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522",
+      "@types/react": "npm:types-react@19.0.0-rc.1"
+    },
+    "react-syntax-highlighter": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522",
+      "@types/react": "npm:types-react@19.0.0-rc.1"
+    },
+    "react-textarea-autosize": {
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522",
+      "@types/react": "npm:types-react@19.0.0-rc.1"
+    }
   }
 }

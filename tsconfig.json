@@ -22,15 +22,9 @@
       "@/prisma/*": ["./prisma/*"],
       "@appInfo": ["./appInfo.json"]
     },
-    "types": ["@cloudflare/workers-types/2023-07-01"],
+    "types": ["@cloudflare/workers-types/2023-07-01", "@types/react"],
     "target": "ESNext"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "src/actions/chat/chatSubmit.tss"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

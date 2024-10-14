@@ -8,13 +8,13 @@ export const runtime = 'experimental-edge'
 const intlMiddleware = createMiddleware({
   locales,
   defaultLocale,
-  localePrefix,
+  localePrefix
 })
 
 export default auth((req) => {
-  return intlMiddleware(req)
+  return intlMiddleware(req as any)
 })
 
 export const config = {
-  matcher: ['/((?!api|_next|.*\\..*).*)'],
+  matcher: ['/((?!api|_next|.*\\..*).*)']
 }

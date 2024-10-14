@@ -42,6 +42,7 @@ Demo: https://app.skeeter.dev/
 
 ## Built with
 
+- [Deno](https://deno.com/)
 - [Next.js](https://nextjs.org/)
 - [Cloudflare Pages](https://pages.cloudflare.com/)
 - [Cloudflare D1](https://developers.cloudflare.com/d1/)
@@ -53,9 +54,6 @@ Demo: https://app.skeeter.dev/
 - [`@cloudflare/next-on-pages`](https://github.com/cloudflare/next-on-pages)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [ESLint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-- [pnpm](https://pnpm.io/)
 - [next-intl](https://next-intl-docs.vercel.app/)
 - [React Compiler](https://react.dev/learn/react-compiler)
 - [shadcn/ui](https://ui.shadcn.com/)
@@ -71,7 +69,7 @@ Demo: https://app.skeeter.dev/
 Create AUTH_SECRET with
 
 ```bash
-pnpm dlx auth secret
+deno task auth:secret
 ```
 
 You need to create free accounts on Resend (to send email) and Neon (for serverless postgresql).
@@ -90,9 +88,9 @@ Also set the secret values on Cloudflare Pages.
 ### Run the development server
 
 ```bash
-pnpm i
-pnpm dev:init
-pnpm dev
+deno i
+deno task dev:init
+deno task dev
 ```
 
 Open [http://localhost:4200](http://localhost:4200) with your browser to see the result.
@@ -100,24 +98,24 @@ Open [http://localhost:4200](http://localhost:4200) with your browser to see the
 ### Migration D1 Auth example
 
 ```bash
-pnpm db:auth:create create_user_table
-pnpm db:auth:init --output prisma/auth/migrations/0001_create_user_table.sql
-pnpm db:auth:apply --local // --remote to production
-pnpm db:auth:gen
+deno task db:auth:create create_user_table
+deno task db:auth:init --output prisma/auth/migrations/0001_create_user_table.sql
+deno task db:auth:apply --local // --remote to production
+deno task db:auth:gen
 
 
 // evolve schema
-pnpm db:auth:create update_user_table
-pnpm db:auth:evolve --output prisma/auth/migrations/0002_update_user_table.sql
-pnpm db:auth:apply --local
-pnpm db:auth:gen
+deno task db:auth:create update_user_table
+deno task db:auth:evolve --output prisma/auth/migrations/0002_update_user_table.sql
+deno task db:auth:apply --local
+deno task db:auth:gen
 ```
 
 ### Migration Neon example
 
 ```bash
-pnpm db:neon:migration:dev // migration:prod is for production (used with .env.build)
-pnpm db:neon:gen
+deno task db:neon:migration:dev // migration:prod is for production (used with .env.build)
+deno task db:neon:gen
 ```
 
 ### Add Components
@@ -128,16 +126,11 @@ pnpm db:neon:gen
 
 You can add the high-quality UI components from [shadcn/ui](https://ui.shadcn.com/)
 
-```bash
-// shortcut method for shadcn/ui
-pnpm ui:add button
-```
-
-You can also use [v0](https://v0.dev/) which is a UI generator with shadcn/ui from simple text prompts and images.
-
 <a href="https://v0.dev/">
   <img src="https://storage.skeet.dev/v0.jpg" alt="v0" />
 </a>
+
+You can also use [v0](https://v0.dev/) which is a UI generator with shadcn/ui from simple text prompts and images.
 
 ## References
 

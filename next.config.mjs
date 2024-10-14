@@ -12,17 +12,21 @@ if (process.env.NODE_ENV === 'development') {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    reactCompiler: true,
+    reactCompiler: true
+  },
+  // temporary. Because of Deno runtime and next-on-pages depends on Vercel build
+  typescript: {
+    ignoreBuildErrors: true
   },
   webpack: (config) => {
     config.experiments = {
       topLevelAwait: true,
       asyncWebAssembly: true,
       syncWebAssembly: true,
-      layers: true,
+      layers: true
     }
     return config
-  },
+  }
 }
 
 export default withNextIntl(nextConfig)

@@ -7,8 +7,9 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import { StreamableValue } from 'ai/rsc'
 import { useStreamableText } from '@/hooks/utils/useStreamableText'
-import { FC, memo } from 'react'
+import { FC, memo, ReactNode } from 'react'
 import ReactMarkdown, { Options } from 'react-markdown'
+import { ReactMarkdownOptions } from 'react-markdown/lib/react-markdown'
 
 export function UserMessage({ children }: { children: React.ReactNode }) {
   return (
@@ -22,7 +23,7 @@ export function UserMessage({ children }: { children: React.ReactNode }) {
 
 export function BotMessage({
   content,
-  className,
+  className
 }: {
   content: string | StreamableValue<string>
   className?: string
@@ -52,7 +53,7 @@ export function BotMessage({
               if (inline) {
                 return (
                   <code className={className} {...props}>
-                    {children}
+                    {children as ReactNode}
                   </code>
                 )
               }
@@ -64,7 +65,7 @@ export function BotMessage({
                   {...props}
                 />
               )
-            },
+            }
           }}
         >
           {text}
@@ -76,7 +77,7 @@ export function BotMessage({
 
 export function BotCard({
   children,
-  showAvatar = true,
+  showAvatar = true
 }: {
   children: React.ReactNode
   showAvatar?: boolean
@@ -86,7 +87,7 @@ export function BotCard({
       <div
         className={cn(
           'flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-primary text-primary-foreground shadow-sm',
-          !showAvatar && 'invisible',
+          !showAvatar && 'invisible'
         )}
       >
         <IconOpenAI />
@@ -141,8 +142,8 @@ export function IconOpenAI({
 }
 
 export const MemorizedReactMarkdown: FC<Options> = memo(
-  ReactMarkdown,
+  ReactMarkdown as React.FunctionComponent<ReactMarkdownOptions>,
   (prevProps, nextProps) =>
     prevProps.children === nextProps.children &&
-    prevProps.className === nextProps.className,
+    prevProps.className === nextProps.className
 )

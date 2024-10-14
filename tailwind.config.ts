@@ -1,5 +1,9 @@
 import type { Config } from 'tailwindcss'
 
+import typographyConfig from '@tailwindcss/typography'
+import animateConfig from 'tailwindcss-animate'
+import scrollbarConfig from 'tailwind-scrollbar'
+
 const config = {
   darkMode: ['class'],
   content: [
@@ -88,11 +92,7 @@ const config = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('tailwindcss-animate'),
-    require('tailwind-scrollbar'),
-  ],
+  plugins: [typographyConfig, animateConfig, scrollbarConfig]
 } satisfies Config
 
 export default config
