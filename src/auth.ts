@@ -21,8 +21,7 @@ const providers: Provider[] = [
 ]
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  // somehow this doesn't recognize the prisma client which was made for the different output folder
-  adapter: PrismaAdapter(prisma as any),
+  adapter: PrismaAdapter(prisma),
   session: { strategy: 'jwt', maxAge: 14 * 24 * 60 * 60 },
   providers,
   callbacks: {
@@ -34,15 +33,24 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (trigger === 'signUp') {
         console.log(`Signed up user: ${user.email}`)
         const prisma = prismaNeonClient(process.env.NEON_DB_URL)
-        await prisma.user.create({
-          data: {
-            uid: user.id,
-            email: user.email,
-            username: user.email.split('@')[0],
-            role: 'USER',
-            iconUrl: getGravatarUrl(user.email),
-          },
-        })
+        try {
+          await prisma.user.create({
+            data: {
+              uid: user.id,
+              email: user.email,
+              username: user.email.split('@')[0],
+              role: 'USER',
+              iconUrl: getGravatarUrl(user.email),
+            },
+          })
+        } catch (e: Error | any) {
+          if (e.message.includes('Unique constraint failed')) {
+            console.log('Already exists')
+          } else {
+            console.error(e)
+            throw e
+          }
+        }
       }
       return token
     },

@@ -8,6 +8,9 @@ export async function sendVerificationRequest(params: {
 }) {
   const { identifier: to, provider, url } = params
   const { host } = new URL(url)
+  if (!provider.apiKey) {
+    throw new Error('API key is missing')
+  }
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {

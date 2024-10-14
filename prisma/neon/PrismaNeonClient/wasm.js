@@ -31,12 +31,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 5.14.0
- * Query Engine version: e9771e62de70f79a5e1c604a2d7c8e2a0a874b48
+ * Prisma Client JS version: 5.19.0
+ * Query Engine version: 5fe21811a6ba0b952a3bc71400666511fe3b902f
  */
 Prisma.prismaVersion = {
-  client: "5.14.0",
-  engine: "e9771e62de70f79a5e1c604a2d7c8e2a0a874b48"
+  client: "5.19.0",
+  engine: "5fe21811a6ba0b952a3bc71400666511fe3b902f"
 }
 
 Prisma.PrismaClientKnownRequestError = PrismaClientKnownRequestError;
@@ -165,6 +165,7 @@ const config = {
     "previewFeatures": [
       "driverAdapters"
     ],
+    "sourceFilePath": "/Users/ktm/dev/skeet-v3-next-edge-rc/prisma/neon/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -172,8 +173,8 @@ const config = {
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "..",
-  "clientVersion": "5.14.0",
-  "engineVersion": "e9771e62de70f79a5e1c604a2d7c8e2a0a874b48",
+  "clientVersion": "5.19.0",
+  "engineVersion": "5fe21811a6ba0b952a3bc71400666511fe3b902f",
   "datasourceNames": [
     "db"
   ],
@@ -197,7 +198,9 @@ defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: () => require('./query_engine_bg.js'),
   getQueryEngineWasmModule: async () => {
-    return (await import('#wasm-engine-loader')).default
+    const loader = (await import('#wasm-engine-loader')).default
+    const engine = (await loader).default
+    return engine 
   }
 }
 
