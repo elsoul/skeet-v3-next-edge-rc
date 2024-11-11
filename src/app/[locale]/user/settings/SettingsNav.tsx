@@ -1,6 +1,6 @@
 'use client'
 
-import { Link, usePathname } from '@/navigation'
+import { Link, usePathname } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
 
 import { cn } from '@/lib/utils'
@@ -19,7 +19,7 @@ export default function UserSettingsNav() {
             key={navItem.label}
             className={cn(
               pathname === navItem.path ? 'font-semibold text-primary' : '',
-              '',
+              ''
             )}
           >
             {t(navItem.label)}

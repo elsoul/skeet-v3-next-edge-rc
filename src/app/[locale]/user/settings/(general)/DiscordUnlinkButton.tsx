@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
 import { useTransition } from 'react'
 import discordUnlinkAction from '@/actions/discord/discordUnlink'
-import { useRouter } from '@/navigation'
+import { useRouter } from '@/i18n/routing'
 
 export default function DiscordUnlinkButton() {
   const t = useTranslations()
@@ -20,7 +20,7 @@ export default function DiscordUnlinkButton() {
       } catch (e) {
         toast({
           title: t('settings.discordLink.errorTitle'),
-          description: t('settings.discordLink.errorDescription'),
+          description: t('settings.discordLink.errorDescription')
         })
       }
     })

@@ -1,6 +1,6 @@
 import { auth } from '@/auth'
 import { ModeToggle } from '@/components/config/ModeToggle'
-import { redirect } from '@/navigation'
+import { redirect } from '@/i18n/routing'
 import UserMenu from './UserMenu'
 import { LanguageToggle } from '@/components/config/LanguageToggle'
 import UserModalNav from './ModalNav'
@@ -9,13 +9,14 @@ import { DEFAULT_PATHS } from '../(default)/defaultNavs'
 
 type Props = {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
-export default async function UserLayout({ children }: Props) {
+export default async function UserLayout({ children, params }: Props) {
+  const { locale } = await params
   const session = await auth()
   if (!session || !session.user?.id) {
-    redirect(DEFAULT_PATHS.home)
+    redirect({ href: DEFAULT_PATHS.home, locale })
   }
 
   return (

@@ -8,12 +8,12 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
+  DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 
 import signOutAction from '@/actions/auth/signOutAction'
 import { useToast } from '@/components/ui/use-toast'
-import { useRouter } from '@/navigation'
+import { useRouter } from '@/i18n/routing'
 import { useSession } from 'next-auth/react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { getGravatarUrl } from '@/lib/utils'
@@ -33,13 +33,13 @@ export default function UserMenu() {
         router.push(DEFAULT_PATHS.home)
         toast({
           title: t('auth.signOutTitle'),
-          description: t('auth.signOutDescription'),
+          description: t('auth.signOutDescription')
         })
       } catch (e) {
         if (e instanceof Error) {
           toast({
             title: t('auth.errorSignOutTitle'),
-            description: t('auth.errorSignOutDescription'),
+            description: t('auth.errorSignOutDescription')
           })
         }
       }

@@ -12,35 +12,33 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-inter'
 })
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-noto-sans-jp',
+  variable: '--font-noto-sans-jp'
 })
 
 type Props = {
   children: React.ReactNode
-  params: {
+  params: Promise<{
     locale: string
-  }
+  }>
 }
 
 export const runtime = 'edge'
 
-export default async function LocaleLayout({
-  children,
-  params: { locale },
-}: Props) {
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params
   const messages = await getMessages()
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
         className={cn(
           'overflow-hidden',
-          `${inter.variable} ${notoSansJP.variable}`,
+          `${inter.variable} ${notoSansJP.variable}`
         )}
         suppressHydrationWarning
       >

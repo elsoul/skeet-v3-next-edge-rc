@@ -16,8 +16,8 @@ const prisma = new PrismaAuthClient({ adapter })
 const providers: Provider[] = [
   Resend({
     from: process.env.EMAIL_FROM,
-    sendVerificationRequest,
-  }),
+    sendVerificationRequest
+  })
 ]
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
@@ -40,15 +40,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
               email: user.email,
               username: user.email.split('@')[0],
               role: 'USER',
-              iconUrl: getGravatarUrl(user.email),
-            },
+              iconUrl: getGravatarUrl(user.email)
+            }
           })
         } catch (e: Error | any) {
           if (e.message.includes('Unique constraint failed')) {
             console.log('Already exists')
           } else {
             console.error(e)
-            throw e
           }
         }
       }
@@ -57,8 +56,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     session({ session, token }) {
       session.user.id = token.id as string
       return session
-    },
-  },
+    }
+  }
 })
 
 export const providerMap = providers.map((provider) => {

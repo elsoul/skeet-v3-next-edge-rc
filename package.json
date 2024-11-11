@@ -58,13 +58,13 @@
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",
     "crypto-js": "4.2.0",
-    "jotai": "2.8.2",
-    "next": "15.0.0-canary.2",
+    "jotai": "2.10.1",
+    "next": "15.0.3",
     "next-auth": "5.0.0-beta.20",
-    "next-intl": "3.14.1",
+    "next-intl": "3.25.0",
     "next-themes": "0.3.0",
-    "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-hook-form": "7.51.5",
     "react-markdown": "8.0.7",
     "react-syntax-highlighter": "15.5.0",
@@ -84,13 +84,13 @@
     "@types/react-syntax-highlighter": "15.5.13",
     "@types/ws": "8.5.10",
     "autoprefixer": "10.4.19",
-    "babel-plugin-react-compiler": "0.0.0-experimental-487cb0e-20240529",
-    "eslint": "8.57.0",
-    "eslint-config-next": "14.2.3",
+    "babel-plugin-react-compiler": "19.0.0-beta-63b359f-20241101",
+    "eslint": "9.14.0",
+    "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-next-on-pages": "1.11.3",
     "postcss": "8.4.38",
-    "prettier": "3.2.5",
+    "prettier": "3.3.3",
     "prettier-plugin-tailwindcss": "0.6.1",
     "prisma": "5.19.0",
     "tailwind-merge": "2.3.0",
@@ -99,89 +99,10 @@
     "tailwindcss-animate": "1.0.7",
     "typescript": "5.6.3",
     "vercel": "37.8.0",
-    "wrangler": "3.80.4"
+    "wrangler": "3.86.0"
   },
-  "overrides": {
-    "@fortawesome/react-fontawesome": {
-      "react": "19.0.0-rc-f994737d14-20240522"
-    },
-    "@radix-ui/react-avatar": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522"
-    },
-    "@radix-ui/react-checkbox": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522"
-    },
-    "@radix-ui/react-dialog": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522"
-    },
-    "@radix-ui/react-dropdown-menu": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522"
-    },
-    "@radix-ui/react-icons": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522"
-    },
-    "@radix-ui/react-label": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522"
-    },
-    "@radix-ui/react-separator": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522"
-    },
-    "@radix-ui/react-slot": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522"
-    },
-    "@radix-ui/react-toast": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522"
-    },
-    "@radix-ui/react-tooltip": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522"
-    },
-    "ai": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522"
-    },
-    "jotai": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522",
-      "@types/react": "npm:types-react@19.0.0-rc.1"
-    },
-    "next-intl": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522",
-      "next": "15.0.0-canary.2"
-    },
-    "next-themes": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522",
-      "next": "15.0.0-canary.2"
-    },
-    "react-hook-form": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522"
-    },
-    "react-markdown": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522",
-      "@types/react": "npm:types-react@19.0.0-rc.1"
-    },
-    "react-syntax-highlighter": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522",
-      "@types/react": "npm:types-react@19.0.0-rc.1"
-    },
-    "react-textarea-autosize": {
-      "react": "19.0.0-rc-f994737d14-20240522",
-      "react-dom": "19.0.0-rc-f994737d14-20240522",
-      "@types/react": "npm:types-react@19.0.0-rc.1"
-    }
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0 || ^19.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0"
   }
 }

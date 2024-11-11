@@ -15,15 +15,15 @@ export async function sendVerificationRequest(params: {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${provider.apiKey}`,
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       from: provider.from,
       to,
       subject: `Sign in to ${host}`,
       html: html({ url, host }),
-      text: text({ url, host }),
-    }),
+      text: text({ url, host })
+    })
   })
 
   if (!res.ok)
@@ -43,7 +43,7 @@ function html(params: { url: string; host: string }) {
     buttonText: 'white',
     footerBackground: '#f9fafb', // Zinc-50
     shadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    titleGradient: 'linear-gradient(to bottom, #6b7280, #1f2937)',
+    titleGradient: 'linear-gradient(to bottom, #6b7280, #1f2937)'
   }
 
   const escapedHost = host.replace(/\./g, '&#8203;.')

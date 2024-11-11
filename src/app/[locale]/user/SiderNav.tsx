@@ -1,6 +1,6 @@
 'use client'
 
-import { Link, usePathname } from '@/navigation'
+import { Link, usePathname } from '@/i18n/routing'
 import LogoHorizontalLink from '@/components/common/LogoHorizontalLink'
 import UpgradeCard from '@/components/common/UpgradeCard'
 import { useTranslations } from 'next-intl'
@@ -28,7 +28,7 @@ export default function UserSiderNav() {
                     pathname === navItem.path
                       ? 'bg-muted text-primary transition-all hover:text-primary dark:bg-muted/40'
                       : 'text-muted-foreground hover:text-primary',
-                    'flex items-center gap-3 rounded-lg px-3 py-2 transition-all',
+                    'flex items-center gap-3 rounded-lg px-3 py-2 transition-all'
                   )}
                 >
                   <navItem.icon className="h-5 w-5" />

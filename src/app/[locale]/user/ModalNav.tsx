@@ -2,7 +2,7 @@
 
 import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 import { Button } from '@/components/ui/button'
-import { Link, usePathname } from '@/navigation'
+import { Link, usePathname } from '@/i18n/routing'
 
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import LogoHorizontalLink from '@/components/common/LogoHorizontalLink'
@@ -44,7 +44,7 @@ export default function UserModalNav() {
                   pathname === navItem.path
                     ? 'bg-muted text-foreground hover:text-foreground dark:bg-muted/40'
                     : 'text-muted-foreground hover:text-foreground',
-                  'mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2',
+                  'mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2'
                 )}
                 onClick={() => setOpen(false)}
               >

@@ -2,23 +2,24 @@ import appInfo from '@appInfo'
 import { auth } from '@/auth'
 import { LanguageToggle } from '@/components/config/LanguageToggle'
 import { ModeToggle } from '@/components/config/ModeToggle'
-import { redirect } from '@/navigation'
+import { redirect } from '@/i18n/routing'
 import { USER_PATHS } from '../user/userNavs'
 import {
   DiscordIconLink,
   GithubIconLink,
-  TwitterIconLink,
+  TwitterIconLink
 } from '@/components/common/icons'
 
 type Props = {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
-export default async function DefaultLayout({ children }: Props) {
+export default async function DefaultLayout({ children, params }: Props) {
+  const { locale } = await params
   const session = await auth()
   if (session) {
-    redirect(USER_PATHS.home)
+    redirect({ href: USER_PATHS.home, locale })
   }
 
   return (

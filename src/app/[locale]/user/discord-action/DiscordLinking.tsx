@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@/navigation'
+import { Link } from '@/i18n/routing'
 import { DiscordLogoIcon } from '@radix-ui/react-icons'
 import { useTranslations } from 'next-intl'
 import { USER_PATHS } from '../userNavs'
@@ -10,7 +10,7 @@ import { useTransition, useEffect, useCallback, useState } from 'react'
 import discordLinkAction from '@/actions/discord/discordLink'
 import { cn } from '@/lib/utils'
 import { useToast } from '@/components/ui/use-toast'
-import { useRouter } from '@/navigation'
+import { useRouter } from '@/i18n/routing'
 
 export default function DiscordLinking() {
   const t = useTranslations()
@@ -31,13 +31,13 @@ export default function DiscordLinking() {
         } catch (e) {
           toast({
             title: t('settings.discordLink.errorTitle'),
-            description: t('settings.discordLink.errorDescription'),
+            description: t('settings.discordLink.errorDescription')
           })
           router.push(USER_PATHS.settings)
         }
       })
     },
-    [toast, t, router],
+    [toast, t, router]
   )
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function DiscordLinking() {
           <DiscordLogoIcon
             className={cn(
               isLinked ? 'text-green-400' : 'text-zinc-500 dark:text-zinc-200',
-              'h-24 w-24',
+              'h-24 w-24'
             )}
           />
           <h1 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-3xl">

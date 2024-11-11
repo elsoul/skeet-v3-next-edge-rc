@@ -8,12 +8,12 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useToast } from '@/components/ui/use-toast'
-import { useRouter } from '@/navigation'
+import { useRouter } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 import { DEFAULT_PATHS } from '../defaultNavs'
@@ -33,7 +33,7 @@ export default function SignInForm() {
         if (e instanceof Error) {
           toast({
             title: t('auth.errorSignInTitle'),
-            description: t('auth.errorSignInDescription'),
+            description: t('auth.errorSignInDescription')
           })
         }
       }
